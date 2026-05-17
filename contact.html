@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#184E6C" />
+
+  <title>Contact — Global Impact Consulting</title>
+  <meta name="description" content="Contactez Global Impact Consulting à Pointe-Noire. Formulaire de contact, email et téléphone pour démarrer votre projet de formation, coaching ou conseil stratégique." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://globalimpactconsulting.com/contact.html" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23184E6C'/%3E%3Ctext x='50' y='64' font-family='Inter,Arial' font-size='44' font-weight='800' text-anchor='middle' fill='%23D4A574'%3EG%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Theme applied immediately to avoid flash -->
+  <script>
+    (function(){var t=localStorage.getItem("gic-theme"),d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");})();
+  </script>
+
+
+  <style>
+    /* ── Contact page ──────────────────────────────── */
+    .contact-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Colonne gauche — informations */
+    .contact-left {
+      background: var(--ink);
+      padding: clamp(120px,14vw,180px) clamp(32px,5vw,80px) clamp(64px,8vw,100px);
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+    }
+    .contact-left__bg {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .contact-left__bg .blob {
+      position: absolute; border-radius: 50%; filter: blur(90px); opacity: .12;
+    }
+    .contact-left__bg .blob--1 { width: 460px; height: 460px; background: var(--gold); top: -100px; left: -100px; }
+    .contact-left__bg .blob--2 { width: 300px; height: 300px; background: var(--gold-2); bottom: 60px; right: -60px; }
+    .contact-left__inner { position: relative; z-index: 1; }
+    .contact-left .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--gold-2); margin-bottom: 32px;
+    }
+    .contact-left .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    .contact-left h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px,5vw,60px);
+      font-weight: 300; color: var(--bg);
+      letter-spacing: -0.03em; line-height: 1.1;
+      margin: 0 0 20px;
+    }
+    .contact-left h1 em { color: var(--gold-2); font-style: italic; }
+    .contact-left__lead {
+      color: rgba(221,236,246,.82);
+      font-size: 16px; line-height: 1.7;
+      margin: 0 0 56px; max-width: 440px;
+    }
+
+    /* Infos de contact */
+    .contact-info { display: flex; flex-direction: column; gap: 28px; position: relative; z-index: 1; }
+    .cinfo-item {
+      display: flex; align-items: flex-start; gap: 18px;
+    }
+    .cinfo-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--gold-2);
+    }
+    .cinfo-icon svg { width: 18px; height: 18px; }
+    .cinfo-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .cinfo-value { font-size: 15px; color: var(--bg); font-weight: 500; }
+    .cinfo-value a { color: var(--bg); transition: color .25s; }
+    .cinfo-value a:hover { color: var(--gold-2); }
+
+    /* Sujets rapides */
+    .contact-topics {
+      margin-top: 48px; position: relative; z-index: 1;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 36px;
+    }
+    .contact-topics p {
+      font-size: 12px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(221,236,246,.4);
+      margin: 0 0 14px;
+    }
+    .contact-topics__pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ctopic {
+      padding: 7px 14px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 13px; color: rgba(221,236,246,.65);
+      transition: border-color .25s, color .25s;
+      cursor: default;
+    }
+    .ctopic:hover { border-color: var(--gold); color: var(--gold-2); }
+
+    /* Colonne droite — formulaire */
+    .contact-right {
+      background: var(--bg);
+      padding: clamp(120px,14vw,180px) clamp(32px,5vw,80px) clamp(64px,8vw,100px);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .contact-right__head { margin-bottom: 40px; }
+    .contact-right__head h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(24px,3vw,34px); font-weight: 400;
+      letter-spacing: -0.02em; margin: 0 0 8px; color: var(--ink);
+    }
+    .contact-right__head p { color: var(--muted); font-size: 15px; margin: 0; }
+
+    /* Form */
+    .cform { display: flex; flex-direction: column; gap: 20px; }
+    .cform__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cfield { position: relative; }
+    .cfield input,
+    .cfield select,
+    .cfield textarea {
+      width: 100%; padding: 18px 16px 6px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit; font-size: 15px; color: var(--ink);
+      transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+      outline: none; appearance: none;
+      -webkit-appearance: none;
+    }
+    .cfield input:focus,
+    .cfield select:focus,
+    .cfield textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,162,95,.15);
+    }
+    .cfield label {
+      position: absolute; top: 12px; left: 16px;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted);
+      pointer-events: none; transition: color .25s;
+    }
+    .cfield:focus-within label { color: var(--gold); }
+    .cfield textarea { resize: vertical; min-height: 120px; padding-top: 28px; }
+    .cfield select { padding-top: 18px; cursor: pointer; }
+
+    /* Checkbox RGPD */
+    .cform__rgpd {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; color: var(--muted); line-height: 1.55;
+    }
+    .cform__rgpd input[type="checkbox"] {
+      width: 18px; height: 18px; flex-shrink: 0;
+      accent-color: var(--gold); margin-top: 1px; cursor: pointer;
+    }
+    .cform__rgpd a { color: var(--gold); text-decoration: underline; }
+
+    /* Submit */
+    .cform__submit { margin-top: 4px; }
+    .cform__submit .btn { width: 100%; justify-content: center; }
+    .cform__note {
+      font-size: 13px; color: var(--muted); margin-top: 12px;
+      min-height: 20px; text-align: center;
+    }
+    .cform__note.success { color: #2E7D52; }
+    .cform__note.error   { color: #C0392B; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-page { grid-template-columns: 1fr; }
+      .contact-left { padding-top: 140px; padding-bottom: 60px; }
+      .contact-right { padding-top: 60px; }
+    }
+    @media (max-width: 560px) {
+      .cform__row { grid-template-columns: 1fr; }
+    }
+
+    /* ── Dark Mode Overrides ────────────────────────── */
+    [data-theme="dark"] .contact-left { background: #060E18; }
+    [data-theme="dark"] .contact-left h1 { color: var(--ink); }
+    [data-theme="dark"] .cinfo-value,
+    [data-theme="dark"] .cinfo-value a { color: var(--ink); }
+    [data-theme="dark"] .contact-right { background: var(--bg); }
+    [data-theme="dark"] .cfield input,
+    [data-theme="dark"] .cfield select,
+    [data-theme="dark"] .cfield textarea {
+      background: var(--paper);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+    [data-theme="dark"] .cfield input::placeholder,
+    [data-theme="dark"] .cfield textarea::placeholder { color: rgba(221,236,246,.35); }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- Navigation -->
+  <header class="nav nav--light-text" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Global Impact Consulting - Accueil">
+      <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting" height="40" style="display:block;height:40px;width:auto;" />
+    </a>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+      <a href="qui-sommes-nous.html" data-nav>Qui sommes-nous</a>
+      <a href="index.html#activities" data-nav>Nos activités</a>
+      <a href="formation.html" data-nav>Formations</a>
+      <a href="index.html#realisations" data-nav>Réalisations</a>
+      <a href="index.html#faq" data-nav>FAQ</a>
+      <a href="contact.html" data-nav class="nav__cta" style="background:var(--gold);color:var(--ink)">Nous contacter <span aria-hidden="true">→</span></a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- CE QUE CHERCHENT LES ENTREPRISES -->
+    <section class="needs" id="needs">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Vos besoins</span>
+          <h2 class="section-title">Ce que cherchent les <em>entreprises</em> et les particuliers.</h2>
+        </div>
+
+        <div class="needs__grid">
+
+          <article class="need-item reveal" style="--d:0s">
+            <span class="need-item__num">01</span>
+            <h3>Optimiser leurs performances et développer les compétences</h3>
+            <p>Elles recherchent des solutions pour renforcer les capacités de leurs équipes et améliorer les résultats opérationnels.</p>
+          </article>
+
+          <article class="need-item reveal" style="--d:.07s">
+            <span class="need-item__num">02</span>
+            <h3>Accompagnement stratégique et personnalisé</h3>
+            <p>Elles veulent un appui clair et méthodique pour transformer leurs idées et projets en actions concrètes et rentables.</p>
+          </article>
+
+          <article class="need-item reveal" style="--d:.14s">
+            <span class="need-item__num">03</span>
+            <h3>Solutions adaptées aux défis et opportunités</h3>
+            <p>Elles cherchent à identifier, analyser et résoudre efficacement leurs problématiques, tout en capitalisant sur les opportunités du marché.</p>
+          </article>
+
+          <article class="need-item reveal" style="--d:.21s">
+            <span class="need-item__num">04</span>
+            <h3>Développement du capital humain</h3>
+            <p>Elles souhaitent former, coacher et motiver leurs collaborateurs pour renforcer la cohésion, le leadership et la performance collective.</p>
+          </article>
+
+          <article class="need-item reveal" style="--d:.28s">
+            <span class="need-item__num">05</span>
+            <h3>Impact et visibilité professionnelle</h3>
+            <p>Elles cherchent à organiser des événements, à communiquer efficacement et à valoriser leur savoir-faire pour créer un impact durable.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-page">
+
+      <!-- GAUCHE — informations -->
+      <div class="contact-left">
+        <div class="contact-left__bg" aria-hidden="true">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+        </div>
+
+        <div class="contact-left__inner">
+          <div class="eyebrow">
+            <span class="dot"></span> Parlons de votre projet
+          </div>
+          <h1>Démarrons <em>ensemble</em>.</h1>
+          <p class="contact-left__lead">Un premier échange, sans engagement, pour comprendre vos enjeux et définir ensemble la meilleure approche pour atteindre vos objectifs.</p>
+
+          <div class="contact-info">
+            <div class="cinfo-item">
+              <div class="cinfo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="cinfo-label">Email</p>
+                <p class="cinfo-value"><a href="mailto:contact@globalimpact.com">contact@globalimpact.com</a></p>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <div class="cinfo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="cinfo-label">Téléphone</p>
+                <p class="cinfo-value"><a href="tel:+242068757984">+242 06 875 79 84</a></p>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <div class="cinfo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="cinfo-label">Bureau</p>
+                <p class="cinfo-value">Centre-ville Pointe-Noire<br>République du Congo</p>
+              </div>
+            </div>
+
+            <div class="cinfo-item">
+              <div class="cinfo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <p class="cinfo-label">Disponibilité</p>
+                <p class="cinfo-value">Lun – Ven · 8h00 – 17h00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-topics">
+            <p>Sujets fréquents</p>
+            <div class="contact-topics__pills">
+              <span class="ctopic">Formation intra-entreprise</span>
+              <span class="ctopic">Coaching exécutif</span>
+              <span class="ctopic">Conseil stratégique</span>
+              <span class="ctopic">Organisation d'événement</span>
+              <span class="ctopic">Devis sur mesure</span>
+              <span class="ctopic">Partenariat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DROITE — formulaire -->
+      <div class="contact-right">
+        <div class="contact-right__head">
+          <h2>Envoyez-nous un message</h2>
+          <p>Nous vous répondons sous 24 heures ouvrées.</p>
+        </div>
+
+        <form class="cform" id="contactForm" novalidate>
+
+          <div class="cform__row">
+            <div class="cfield">
+              <input type="text" id="fName" name="name" required autocomplete="name" placeholder=" " />
+              <label for="fName">Nom complet</label>
+            </div>
+            <div class="cfield">
+              <input type="text" id="fOrg" name="org" autocomplete="organization" placeholder=" " />
+              <label for="fOrg">Organisation</label>
+            </div>
+          </div>
+
+          <div class="cform__row">
+            <div class="cfield">
+              <input type="email" id="fEmail" name="email" required autocomplete="email" placeholder=" " />
+              <label for="fEmail">Email professionnel</label>
+            </div>
+            <div class="cfield">
+              <input type="tel" id="fPhone" name="phone" autocomplete="tel" placeholder=" " />
+              <label for="fPhone">Téléphone</label>
+            </div>
+          </div>
+
+          <div class="cfield">
+            <select id="fTopic" name="topic" required>
+              <option value="" disabled selected></option>
+              <option>Formation intra-entreprise</option>
+              <option>Formation inter-entreprise</option>
+              <option>Coaching individuel</option>
+              <option>Coaching collectif</option>
+              <option>Conseil stratégique</option>
+              <option>Étude & diagnostic</option>
+              <option>Organisation d'événement</option>
+              <option>Partenariat</option>
+              <option>Autre</option>
+            </select>
+            <label for="fTopic">Objet de la demande</label>
+          </div>
+
+          <div class="cfield">
+            <textarea id="fMsg" name="message" rows="5" required placeholder=" "></textarea>
+            <label for="fMsg">Décrivez votre projet ou besoin</label>
+          </div>
+
+          <label class="cform__rgpd">
+            <input type="checkbox" id="fRgpd" name="rgpd" required />
+            J'accepte que mes données soient traitées par Global Impact Consulting dans le cadre de ma demande, conformément à notre <a href="politique-confidentialite.html">politique de confidentialité</a>.
+          </label>
+
+          <div class="cform__submit">
+            <button type="submit" class="btn btn--primary magnetic">
+              <span>Envoyer ma demande</span>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <p class="cform__note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting" style="height:48px;width:auto;display:block;margin-bottom:12px;" />
+        <p>Créer un impact durable, humain et mesurable au cœur de chaque projet.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation">
+        <h4>Navigation</h4>
+        <a href="qui-sommes-nous.html">Qui sommes-nous</a>
+        <a href="index.html#activities">Nos activités</a>
+        <a href="formation.html">Formations</a>
+        <a href="index.html#realisations">Réalisations</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Domaines">
+        <h4>Formations</h4>
+        <a href="formation.html#leadership">Leadership</a>
+        <a href="formation.html#strat">Management stratégique</a>
+        <a href="formation.html#com">Commercial</a>
+        <a href="formation.html#rh">RH</a>
+        <a href="formation.html#qhse">QHSE</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Légal">
+        <h4>Légal</h4>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="conditions-utilisation.html">Conditions d'utilisation</a>
+        <a href="conformite-donnees.html">Conformité des données</a>
+      </nav>
+      <div class="footer__nav">
+        <h4>Contact</h4>
+        <a href="mailto:contact@globalimpact.com">contact@globalimpact.com</a>
+        <a href="tel:+242068757984">+242 06 875 79 84</a>
+        <span>Centre-ville Pointe-Noire, Congo</span>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <small>© <span id="year"></span> Global Impact Consulting — Tous droits réservés.</small>
+      <small>Un impact durable, humain et mesurable.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Gros fichiers / docs internes
+Archive.zip
+Document By Maestro.pdf
+
+# Outils
+.claude/
+node_modules/
+
+# Logs
+*.log
+
+# Secrets / env
+.env
+.env.*

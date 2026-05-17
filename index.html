@@ -1,0 +1,1311 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <script>
+    (function () {
+      var t = localStorage.getItem('gic-theme') ||
+        (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#184E6C" />
+
+  <title>Global Impact Consulting — Formation, Coaching & Conseil stratégique</title>
+  <meta name="description"
+    content="Global Impact Consulting (GIC) — cabinet de formation, coaching et conseil stratégique. Nous transformons vos ambitions en résultats durables grâce à la méthodologie G.I.M.P.A.C.T." />
+  <meta name="keywords"
+    content="Global Impact Consulting, GIC, formation, coaching, conseil stratégique, leadership, management, Congo, développement personnel, RH, QHSE" />
+  <meta name="author" content="Global Impact Consulting" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://globalimpactconsulting.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Global Impact Consulting" />
+  <meta property="og:title" content="Global Impact Consulting — Révéler le potentiel, accélérer la croissance" />
+  <meta property="og:description"
+    content="Cabinet d'accompagnement professionnel : formation, coaching, conseil stratégique et événements à forte valeur ajoutée." />
+  <meta property="og:url" content="https://globalimpactconsulting.com/" />
+  <meta property="og:image" content="https://globalimpactconsulting.com/assets/og-cover.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Global Impact Consulting" />
+  <meta name="twitter:description"
+    content="Formation, coaching et conseil stratégique. Un impact durable, humain et mesurable." />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23184E6C'/%3E%3Ctext x='50' y='64' font-family='Inter,Arial' font-size='44' font-weight='800' text-anchor='middle' fill='%23D4A574'%3EG%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Structured data (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Global Impact Consulting",
+    "alternateName": "GIC",
+    "description": "Cabinet d'accompagnement professionnel spécialisé dans la formation, le coaching, le conseil stratégique, les études et l'organisation d'événements à forte valeur ajoutée.",
+    "areaServed": "Congo",
+    "url": "https://globalimpactconsulting.com/",
+    "logo": "https://globalimpactconsulting.com/assets/logo.svg",
+    "founder": {"@type": "Person", "name": "Karel NTSIKA", "jobTitle": "Directeur Exécutif"},
+    "sameAs": [],
+    "serviceType": ["Formation", "Coaching", "Conseil stratégique", "Études", "Événementiel"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__brand">
+      <span class="loader__word" data-split>Global Impact Consulting</span>
+    </div>
+    <div class="loader__progress"><span id="loaderBar"></span></div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Global Impact Consulting - Accueil">
+      <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting" height="40"
+        style="display:block;height:40px;width:auto;" />
+    </a>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+      <a href="qui-sommes-nous.html" data-nav>Qui sommes-nous</a>
+      <a href="#activities" data-nav>Nos activités</a>
+      <a href="formation.html" data-nav>Formations</a>
+      <a href="#realisations" data-nav>Réalisations</a>
+      <a href="#faq" data-nav>FAQ</a>
+      <a href="contact.html" data-nav class="nav__cta">Nous contacter <span aria-hidden="true">→</span></a>
+    </nav>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </svg>
+    </button>
+
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" id="hero" data-parallax-scene>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="blob blob--1" data-parallax="0.12"></div>
+        <div class="blob blob--2" data-parallax="-0.18"></div>
+        <div class="grid-pattern" data-parallax="0.06"></div>
+      </div>
+
+      <!-- Floating photos - parallax collage -->
+      <div class="hero__collage" aria-hidden="true">
+        <figure class="hero__photo hero__photo--a" data-parallax="0.18" data-tilt>
+          <div class="hero__photo-inner">
+            <img src="assets/young-african-man-presenting-at-conference-2026-01-08-06-26-54-utc.jpg" alt=""
+              loading="eager" decoding="async" fetchpriority="high" />
+          </div>
+          <figcaption><span>Conférence</span></figcaption>
+        </figure>
+        <figure class="hero__photo hero__photo--b" data-parallax="-0.24" data-tilt>
+          <div class="hero__photo-inner">
+            <img src="assets/businesswoman-raising-hand-during-business-seminar-2026-03-25-00-50-12-utc.jpg" alt=""
+              loading="lazy" decoding="async" />
+          </div>
+          <figcaption><span>Séminaire</span></figcaption>
+        </figure>
+        <figure class="hero__photo hero__photo--c" data-parallax="0.32" data-tilt>
+          <div class="hero__photo-inner">
+            <img src="assets/multiracial-young-creative-people-in-modern-office-2026-03-18-13-28-56-utc.jpg" alt=""
+              loading="lazy" decoding="async" />
+          </div>
+          <figcaption><span>Équipe</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="hero__inner">
+        <div class="eyebrow fade-up">
+          <span class="dot"></span> Cabinet de formation • coaching • conseil
+        </div>
+
+        <h1 class="hero__title">
+          <span class="line"><span data-reveal>Transformez vos ambitions</span></span>
+          <span class="line"><span data-reveal>en <em>résultats durables</em>.</span></span>
+        </h1>
+
+        <p class="hero__lead fade-up" style="--d:.2s">
+          Chez Global Impact Consulting, nous accompagnons les femmes, les hommes, les entreprises
+          et les institutions dans la construction d'une performance durable, humaine et mesurable.
+        </p>
+
+        <div class="hero__cta fade-up" style="--d:.35s">
+          <a href="#contact" class="btn btn--primary magnetic">
+            <span>Démarrer un projet</span>
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a href="#services" class="btn btn--ghost magnetic">Découvrir nos formations</a>
+        </div>
+
+        <div class="hero__stats fade-up" style="--d:.5s">
+          <div class="stat">
+            <span class="stat__num" data-count="2020">0</span>
+            <span class="stat__label">Relance stratégique</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="42">0</span>+</span>
+            <span class="stat__label">Programmes de formation</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="6">0</span></span>
+            <span class="stat__label">Domaines d'expertise</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num"><span data-count="100">0</span>%</span>
+            <span class="stat__label">Sur mesure</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Faire défiler">
+        <span></span>
+        <small>scroll</small>
+      </a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Leadership</span><span>•</span>
+        <span>Développement personnel</span><span>•</span>
+        <span>Management stratégique</span><span>•</span>
+        <span>Commercial</span><span>•</span>
+        <span>Business</span><span>•</span>
+        <span>RH</span><span>•</span>
+        <span>QHSE</span><span>•</span>
+        <span>Leadership</span><span>•</span>
+        <span>Développement personnel</span><span>•</span>
+        <span>Management stratégique</span><span>•</span>
+        <span>Commercial</span><span>•</span>
+        <span>Business</span><span>•</span>
+        <span>RH</span><span>•</span>
+        <span>QHSE</span><span>•</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about__grid">
+        <div class="about__media" data-parallax-scene>
+          <figure class="about__photo" data-parallax="0.06">
+            <img src="assets/happy-mature-businesswoman-talking-to-group-of-sem-2026-03-24-00-27-24-utc.jpg"
+              alt="Accompagnement en séminaire — Global Impact Consulting" loading="lazy" decoding="async" />
+            <div class="about__photo-overlay"></div>
+            <div class="about__photo-stat">
+              <strong>+12</strong>
+              <span>années d'expertise terrain</span>
+            </div>
+          </figure>
+
+          <div class="about__card" data-parallax="-0.08">
+            <div class="about__card-head">
+              <span>Directeur Exécutif</span>
+              <span class="about__badge">Le mot</span>
+            </div>
+            <blockquote>
+              « Une organisation performante repose avant tout sur la qualité des femmes
+              et des hommes qui la composent. »
+            </blockquote>
+            <div class="about__signature">
+              <strong>Karel NTSIKA</strong>
+              <span>Directeur Exécutif — GIC</span>
+            </div>
+          </div>
+          <div class="about__glow" data-parallax="-0.12" aria-hidden="true"></div>
+        </div>
+
+        <div class="about__text">
+          <div class="section-head reveal">
+            <span class="section-kicker">Qui sommes-nous</span>
+            <h2 class="section-title">Un cabinet dédié à votre <em>réussite</em>.</h2>
+          </div>
+
+          <p class="reveal">
+            Global Impact Consulting est un cabinet d'accompagnement professionnel spécialisé
+            dans la <strong>formation</strong>, le <strong>coaching</strong>, le
+            <strong>conseil stratégique</strong>, les <strong>études</strong> et
+            l'<strong>organisation d'événements</strong> à forte valeur ajoutée.
+          </p>
+          <p class="reveal">
+            Forts d'une expertise solide et d'une expérience de terrain reconnue, nous nous
+            positionnons comme un partenaire stratégique de confiance face aux enjeux actuels
+            des organisations.
+          </p>
+
+          <p class="pillars__label reveal" style="--d:.15s">Nos principes fondateurs</p>
+          <ul class="pillars">
+            <li class="reveal" style="--d:.20s">
+              <span class="pillars__icon">R</span>
+              <div>
+                <h3>Respect</h3>
+                <p>Des personnes, des cultures et des engagements pris.</p>
+              </div>
+            </li>
+            <li class="reveal" style="--d:.27s">
+              <span class="pillars__icon">I</span>
+              <div>
+                <h3>Intégrité</h3>
+                <p>Une éthique sans compromis dans chacune de nos interventions.</p>
+              </div>
+            </li>
+            <li class="reveal" style="--d:.34s">
+              <span class="pillars__icon">R</span>
+              <div>
+                <h3>Responsabilité</h3>
+                <p>Assumer pleinement nos actes et leurs impacts.</p>
+              </div>
+            </li>
+            <li class="reveal" style="--d:.41s">
+              <span class="pillars__icon">E</span>
+              <div>
+                <h3>Exemplarité</h3>
+                <p>Montrer l'exemple pour inspirer et crédibiliser notre action.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="clients" id="clients">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Références</span>
+          <h2 class="section-title">Ils nous ont fait, ils nous font et ils nous feront <em>confiance</em>.</h2>
+          <p class="section-sub">Entreprises, institutions et organisations qui nous ont confié leurs projets - hier,
+            aujourd'hui et demain.</p>
+        </div>
+      </div>
+
+      <div class="clients__strip">
+        <div class="clients__track">
+          <!-- Set 1 -->
+          <div class="client-logo"><img src="logo/new_logo_beac_or_w300.png" alt="BEAC" /></div>
+          <div class="client-logo"><img src="logo/Airtel_Africa_logo.svg.png" alt="Airtel" /></div>
+          <div class="client-logo"><img src="logo/Logo_Bureau_Veritas.svg.png" alt="Bureau Veritas" /></div>
+          <div class="client-logo"><img src="logo/Ecobank_Logo_EN.png" alt="Ecobank" /></div>
+          <div class="client-logo"><img src="logo/CIB-1.jpg" alt="CIB" /></div>
+          <div class="client-logo"><img src="logo/total-energies-2025-logo.webp" alt="TotalEnergies" /></div>
+          <div class="client-logo"><img src="logo/Canal-Logo-scaled.png" alt="Canal+" /></div>
+          <div class="client-logo"><img src="logo/Logo_de_lOrganisation_mondiale_de_la_sante.svg-scaled.png"
+              alt="OMS" /></div>
+          <div class="client-logo"><img src="logo/Arda_Member_Sponsor_Logo_Coraf-400x400-1.png" alt="CORAF" /></div>
+          <div class="client-logo"><img src="logo/Logo MTN 2026-05-09 à 21.02.53.png" alt="MTN" /></div>
+          <div class="client-logo"><img src="logo/unnamed.jpg" alt="Congo Terminal" /></div>
+          <div class="client-logo"><img src="logo/Logo-BCH.webp" alt="BCH" /></div>
+          <!-- Set 2 (duplication pour le défilement infini) -->
+          <div class="client-logo"><img src="logo/new_logo_beac_or_w300.png" alt="BEAC" /></div>
+          <div class="client-logo"><img src="logo/Airtel_Africa_logo.svg.png" alt="Airtel" /></div>
+          <div class="client-logo"><img src="logo/Logo_Bureau_Veritas.svg.png" alt="Bureau Veritas" /></div>
+          <div class="client-logo"><img src="logo/Ecobank_Logo_EN.png" alt="Ecobank" /></div>
+          <div class="client-logo"><img src="logo/CIB-1.jpg" alt="CIB" /></div>
+          <div class="client-logo"><img src="logo/total-energies-2025-logo.webp" alt="TotalEnergies" /></div>
+          <div class="client-logo"><img src="logo/Canal-Logo-scaled.png" alt="Canal+" /></div>
+          <div class="client-logo"><img src="logo/Logo_de_lOrganisation_mondiale_de_la_sante.svg-scaled.png"
+              alt="OMS" /></div>
+          <div class="client-logo"><img src="logo/Arda_Member_Sponsor_Logo_Coraf-400x400-1.png" alt="CORAF" /></div>
+          <div class="client-logo"><img src="logo/Logo MTN 2026-05-09 à 21.02.53.png" alt="MTN" /></div>
+          <div class="client-logo"><img src="logo/unnamed.jpg" alt="Congo Terminal" /></div>
+          <div class="client-logo"><img src="logo/Logo-BCH.webp" alt="BCH" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOS ACTIVITÉS -->
+    <section class="activities" id="activities">
+      <div class="container">
+        <div class="activities__intro reveal">
+          <div class="section-head" style="margin-bottom:20px">
+            <span class="section-kicker">Ce que nous faisons</span>
+            <h2 class="section-title">Nos <em>activités</em>.</h2>
+          </div>
+          <em class="activities__tagline">Un consulting orienté performance.</em>
+          <p class="activities__desc">Notre engagement est de vous accompagner avec méthode et clarté pour développer
+            pleinement votre activité. Entreprises, organismes, entrepreneurs ou porteurs de projet : nous transformons
+            vos défis en opportunités, vos idées en actions concrètes et rentables, et votre vision en résultats
+            tangibles au quotidien.</p>
+        </div>
+
+        <div class="activities__grid">
+
+          <article class="act-card reveal" style="--d:0s">
+            <div class="act-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+              </svg>
+            </div>
+            <h3>Training</h3>
+            <p>La formation a pour objectif de renforcer vos capacités et développer vos compétences, de vous permettre
+              de découvrir et maîtriser de nouvelles méthodes, de comprendre les processus et de vous approprier les
+              outils nécessaires pour optimiser vos performances professionnelles.</p>
+          </article>
+
+          <article class="act-card reveal" style="--d:.07s">
+            <div class="act-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3>Coaching</h3>
+            <p>Le coaching est un accompagnement personnalisé ou collectif visant à développer les aptitudes, améliorer
+              la personnalité et adapter les attitudes, afin de faciliter l'expression et la construction de solutions
+              adaptées aux défis du moment.</p>
+          </article>
+
+          <article class="act-card reveal" style="--d:.14s">
+            <div class="act-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+                <path d="M11 8v6M8 11h6" />
+              </svg>
+            </div>
+            <h3>Études</h3>
+            <p>L'activité d'étude consiste à collecter et analyser méthodiquement des informations relatives à une
+              situation, un événement ou un environnement, pour fournir aux décideurs des éléments objectifs qui guident
+              leurs décisions.</p>
+          </article>
+
+          <article class="act-card reveal" style="--d:.21s">
+            <div class="act-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2a7 7 0 0 1 7 7c0 4-4 8-7 11C9 17 2 13 2 9a7 7 0 0 1 7-7h3z" />
+                <circle cx="12" cy="9" r="2" />
+              </svg>
+            </div>
+            <h3>Conseils</h3>
+            <p>Le conseil consiste à évaluer différents aspects d'une situation ou les besoins exprimés, à recueillir et
+              comprendre les informations nécessaires, afin de formuler des avis et recommandations sur les actions à
+              entreprendre et les orientations à suivre.</p>
+          </article>
+
+          <article class="act-card reveal" style="--d:.28s">
+            <div class="act-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+                <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
+              </svg>
+            </div>
+            <h3>Event's</h3>
+            <p>Nous mettons nos connaissances et compétences au service de nos partenaires pour organiser et animer des
+              activités professionnelles à forte valeur ajoutée selon leurs objectifs : cohésion d'équipe, performance
+              collective, développement professionnel et communication.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MÉTHODE G.I.M.P.A.C.T -->
+    <section class="method" id="method">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Signature pédagogique</span>
+          <h2 class="section-title">La méthodologie <em>G.I.M.P.A.C.T</em></h2>
+          <p class="section-sub">Un parcours en 7 étapes conçu pour transformer la connaissance en résultat.</p>
+        </div>
+
+        <div class="method__grid">
+          <article class="method__card reveal" style="--d:0s">
+            <span class="method__letter">G</span>
+            <h3>Diagnostic Global</h3>
+            <p>Analyse du contexte réel du participant ou de l'entreprise.</p>
+          </article>
+          <article class="method__card reveal" style="--d:.06s">
+            <span class="method__letter">I</span>
+            <h3>Immersion</h3>
+            <p>Compréhension des enjeux et partage d'expériences terrain.</p>
+          </article>
+          <article class="method__card reveal" style="--d:.12s">
+            <span class="method__letter">M</span>
+            <h3>Modélisation</h3>
+            <p>Apport méthodologique et outils structurants.</p>
+          </article>
+          <article class="method__card reveal" style="--d:.18s">
+            <span class="method__letter">P</span>
+            <h3>Pratique</h3>
+            <p>Ateliers, simulations et cas concrets.</p>
+          </article>
+          <article class="method__card reveal" style="--d:.24s">
+            <span class="method__letter">A</span>
+            <h3>Application</h3>
+            <p>Construction d'un plan d'action personnalisé.</p>
+          </article>
+          <article class="method__card reveal" style="--d:.30s">
+            <span class="method__letter">C</span>
+            <h3>Coaching</h3>
+            <p>Accompagnement post-formation continu.</p>
+          </article>
+          <article class="method__card method__card--full reveal" style="--d:.36s">
+            <span class="method__letter">T</span>
+            <h3>Transformation</h3>
+            <p>Mesure des résultats et impact organisationnel durable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Nos formations</span>
+          <h2 class="section-title">6 domaines, <em>des dizaines</em> de programmes.</h2>
+          <p class="section-sub">Chaque programme combine conseil, formation pratique et accompagnement opérationnel
+            pour assurer des résultats mesurables.</p>
+        </div>
+
+        <div class="services__tabs" role="tablist">
+          <button class="tab active" data-tab="leadership" role="tab" aria-selected="true">Leadership</button>
+          <button class="tab" data-tab="perso" role="tab">Développement personnel</button>
+          <button class="tab" data-tab="strat" role="tab">Management stratégique</button>
+          <button class="tab" data-tab="com" role="tab">Commercial</button>
+          <button class="tab" data-tab="biz" role="tab">Business</button>
+          <button class="tab" data-tab="rh" role="tab">RH</button>
+          <button class="tab" data-tab="qhse" role="tab">QHSE</button>
+        </div>
+
+        <div class="services__panels">
+
+          <div class="panel active" data-panel="leadership" role="tabpanel">
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Leadership Transformationnel</h3>
+                <p>Développer une posture de leader capable d'inspirer et mobiliser durablement.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Leadership & Prise de Décision</h3>
+                <p>Décider efficacement en contexte d'incertitude. Simulations et cas pratiques.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Leadership Éthique & Responsable</h3>
+                <p>Intégrer l'éthique dans la gouvernance et renforcer la crédibilité managériale.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Leadership Féminin & Inclusion</h3>
+                <p>Développer un leadership inclusif et améliorer le climat organisationnel.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Leadership en période de crise</h3>
+                <p>Gérer pression et incertitude, maintenir la performance en contexte critique.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Intelligence Émotionnelle du Leader</h3>
+                <p>Maîtriser émotions et relations pour un leadership relationnel renforcé.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Communication d'Influence</h3>
+                <p>Convaincre et mobiliser efficacement pour un impact communicationnel élevé.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="perso" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Confiance en soi & Affirmation</h3>
+                <p>Renforcer assurance et crédibilité — posture professionnelle affirmée.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Gestion du Temps & Productivité</h3>
+                <p>Optimiser priorités et organisation pour un gain mesurable de productivité.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Prise de parole en public</h3>
+                <p>Structurer et captiver un auditoire avec impact et fluidité.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Gestion du Stress & Résilience</h3>
+                <p>Prévenir l'épuisement professionnel pour une performance durable.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Discipline personnelle & performance</h3>
+                <p>Installer des routines gagnantes et une amélioration continue.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Intelligence relationnelle</h3>
+                <p>Améliorer les interactions et apaiser les relations professionnelles.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Mindset de réussite</h3>
+                <p>Développer une mentalité orientée résultats et motivation accrue.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="strat" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Élaboration du Plan Stratégique</h3>
+                <p>Construire une vision et un plan d'action structuré — opérationnel.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Pilotage par la Performance (KPI)</h3>
+                <p>Mettre en place des indicateurs efficaces pour une meilleure prise de décision.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Analyse Stratégique & Positionnement</h3>
+                <p>Diagnostiquer marchés et concurrence — orientation stratégique claire.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Gestion du Changement</h3>
+                <p>Accompagner les transformations pour une adoption rapide des changements.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Gouvernance & Prise de Décision</h3>
+                <p>Structurer les processus décisionnels pour une organisation plus agile.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Innovation & Avantage Concurrentiel</h3>
+                <p>Développer la différenciation stratégique pour une croissance durable.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Management par Objectifs</h3>
+                <p>Aligner stratégie & opérationnel — responsabilisation des équipes.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="com" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Techniques de Vente Avancées</h3>
+                <p>Maîtriser le cycle complet de vente et augmenter le taux de conversion.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Négociation Commerciale</h3>
+                <p>Conclure des accords gagnant-gagnant et améliorer les marges.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Gestion d'une Force de Vente</h3>
+                <p>Structurer et piloter une équipe commerciale performante.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Relation Client & Fidélisation</h3>
+                <p>Construire une expérience client durable et augmenter la fidélité.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Prospection stratégique</h3>
+                <p>Développer un portefeuille clients et acquérir de nouveaux marchés.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Vente B2B professionnelle</h3>
+                <p>Maîtriser les ventes complexes et signer des contrats majeurs.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Marketing & Vente digitale</h3>
+                <p>Exploiter les outils numériques pour générer des leads qualifiés.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="biz" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Création & Structuration d'Entreprise</h3>
+                <p>Transformer une idée en modèle viable et structuré.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Business Model & Rentabilité</h3>
+                <p>Concevoir un modèle économique solide pour une vision financière claire.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Stratégies de Croissance</h3>
+                <p>Accélérer le développement avec une expansion maîtrisée.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Levée de Fonds & Partenariats</h3>
+                <p>Sécuriser financements et alliances pour de nouvelles ressources.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Développement de Marché</h3>
+                <p>Identifier de nouvelles opportunités — diversification des revenus.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Pilotage Financier pour Dirigeants</h3>
+                <p>Lire et exploiter les indicateurs pour une meilleure gestion.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Entrepreneuriat stratégique</h3>
+                <p>Construire une vision long terme pour la pérennité de l'entreprise.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="rh" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>GPEC</h3>
+                <p>Gestion prévisionnelle des emplois et compétences — organisation proactive.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Recrutement & Intégration</h3>
+                <p>Sécuriser les recrutements et réduire le turnover.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Évaluation de la Performance</h3>
+                <p>Mettre en place des systèmes d'évaluation — motivation accrue.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Droit du Travail & Relations Sociales</h3>
+                <p>Maîtriser les obligations légales et réduire les risques sociaux.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Gestion des Talents</h3>
+                <p>Identifier et développer les hauts potentiels — fidélisation des compétences clés.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Leadership RH stratégique</h3>
+                <p>Positionner la fonction RH comme partenaire business créateur de valeur.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Gestion des Conflits</h3>
+                <p>Prévenir et résoudre les tensions pour un climat social sain.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="qhse" role="tabpanel" hidden>
+            <div class="cards">
+              <article class="card"><span class="card__num">01</span>
+                <h3>Introduction aux systèmes QHSE</h3>
+                <p>Comprendre les référentiels qualité, sécurité et environnement.</p>
+              </article>
+              <article class="card"><span class="card__num">02</span>
+                <h3>Management de la Qualité (ISO 9001)</h3>
+                <p>Mettre en place un système qualité efficace — amélioration continue.</p>
+              </article>
+              <article class="card"><span class="card__num">03</span>
+                <h3>Santé & Sécurité au Travail</h3>
+                <p>Réduire les accidents pour un environnement sécurisé.</p>
+              </article>
+              <article class="card"><span class="card__num">04</span>
+                <h3>Gestion des Risques Professionnels</h3>
+                <p>Identifier et maîtriser les risques — prévention renforcée.</p>
+              </article>
+              <article class="card"><span class="card__num">05</span>
+                <h3>Audit Interne QHSE</h3>
+                <p>Évaluer la conformité des processus pour une organisation performante.</p>
+              </article>
+              <article class="card"><span class="card__num">06</span>
+                <h3>Culture Sécurité en entreprise</h3>
+                <p>Développer des comportements responsables et engagement collectif.</p>
+              </article>
+              <article class="card"><span class="card__num">07</span>
+                <h3>Responsabilité Sociétale (RSE)</h3>
+                <p>Intégrer le développement durable — image institutionnelle renforcée.</p>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVELS / PARALLAX -->
+    <section class="levels" id="levels" data-parallax-scene>
+      <div class="levels__bg" aria-hidden="true">
+        <div class="levels__shape" data-parallax="0.15"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Parcours de formation</span>
+          <h2 class="section-title section-title--light">3 niveaux, <em>une progression</em> cohérente.</h2>
+          <p class="section-sub section-sub--light">De l'acquisition des fondamentaux à la transformation stratégique.
+          </p>
+        </div>
+
+        <div class="levels__grid">
+          <article class="level reveal" style="--d:0s">
+            <header>
+              <span class="level__tag">Niveau 1</span>
+              <h3>Essentiel</h3>
+              <small>Opérationnel</small>
+            </header>
+            <ul>
+              <li>Acquisition des fondamentaux</li>
+              <li>Outils immédiatement applicables</li>
+              <li>Approche pratique orientée terrain</li>
+            </ul>
+            <footer>Collaborateurs, jeunes managers, entrepreneurs débutants</footer>
+          </article>
+
+          <article class="level reveal level--featured" style="--d:.1s">
+            <header>
+              <span class="level__tag">Niveau 2</span>
+              <h3>Avancé</h3>
+              <small>Managerial</small>
+            </header>
+            <ul>
+              <li>Approfondissement stratégique</li>
+              <li>Études de cas réels</li>
+              <li>Mise en situation professionnelle</li>
+            </ul>
+            <footer>Managers, responsables d'équipe, cadres</footer>
+          </article>
+
+          <article class="level reveal" style="--d:.2s">
+            <header>
+              <span class="level__tag">Niveau 3</span>
+              <h3>Executive</h3>
+              <small>Dirigeants</small>
+            </header>
+            <ul>
+              <li>Vision stratégique et transformation</li>
+              <li>Coaching collectif</li>
+              <li>Problématiques réelles d'entreprise</li>
+            </ul>
+            <footer>Dirigeants, directeurs, hauts potentiels</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉALISATIONS -->
+    <section class="realisations" id="realisations" data-parallax-scene>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Portfolio</span>
+          <h2 class="section-title">Nos <em>réalisations</em>.</h2>
+          <p class="section-sub">Séminaires, conférences, ateliers, coaching - des moments qui ont compté pour nos
+            clients et leurs équipes.</p>
+        </div>
+
+        <!-- Filtres -->
+        <div class="gallery__filters reveal" role="tablist">
+          <button class="gfilter active" data-filter="all" role="tab" aria-selected="true">
+            Tout <span>11</span>
+          </button>
+          <button class="gfilter" data-filter="seminaire" role="tab">Séminaires <span>4</span></button>
+          <button class="gfilter" data-filter="formation" role="tab">Formations <span>3</span></button>
+          <button class="gfilter" data-filter="conference" role="tab">Conférences <span>2</span></button>
+          <button class="gfilter" data-filter="coaching" role="tab">Coaching <span>2</span></button>
+        </div>
+
+        <!-- Featured video -->
+        <div class="featured-video reveal" data-parallax-scene>
+          <div class="featured-video__media">
+            <img src="assets/diversity-people-talk-international-conference-par-2026-03-18-12-01-06-utc.jpg"
+              alt="Conférence internationale Global Impact Consulting" loading="lazy" decoding="async"
+              data-parallax="0.12" />
+            <button class="featured-video__play magnetic" type="button" aria-label="Lire la vidéo de présentation">
+              <span class="featured-video__pulse" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path d="M8 5v14l11-7z" fill="currentColor" />
+              </svg>
+            </button>
+          </div>
+          <div class="featured-video__caption">
+            <span class="featured-video__tag">Édition 2024</span>
+            <h3>Forum International du Leadership</h3>
+            <p>250+ dirigeants · 3 jours · 12 intervenants</p>
+          </div>
+        </div>
+
+        <!-- Galerie mosaïque -->
+        <div class="gallery" id="gallery">
+          <figure class="gallery__item gallery__item--wide" data-cat="conference" data-reveal-img>
+            <img src="assets/young-african-man-presenting-at-conference-2026-01-08-06-26-54-utc.jpg"
+              alt="Présentation lors d'une conférence" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Conférence</span>
+              <h3>Leadership & Prise de parole</h3>
+              <p>Brazzaville — 2024</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="seminaire" data-reveal-img>
+            <img src="assets/businesswoman-raising-hand-during-business-seminar-2026-03-25-00-50-12-utc.jpg"
+              alt="Séminaire entreprise" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Séminaire</span>
+              <h3>Leadership Féminin</h3>
+              <p>Programme Executive</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="formation" data-reveal-img>
+            <img src="assets/african-american-male-participant-writing-notes-on-2026-01-19-15-28-45-utc.jpg"
+              alt="Participant prenant des notes en formation" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Formation</span>
+              <h3>Management Stratégique</h3>
+              <p>Niveau 2 — Avancé</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item gallery__item--tall" data-cat="seminaire" data-reveal-img>
+            <img src="assets/group-of-creative-business-people-listening-to-col-2026-01-11-10-09-16-utc.jpg"
+              alt="Atelier collectif" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Séminaire</span>
+              <h3>Cohésion d'équipe</h3>
+              <p>Grand format — 80 personnes</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="coaching" data-reveal-img>
+            <img src="assets/two-young-biracial-female-colleagues-discuss-teamw-2026-03-25-02-27-28-utc.jpg"
+              alt="Séance de coaching individuel" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Coaching</span>
+              <h3>Coaching individuel</h3>
+              <p>Accompagnement sur mesure</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="seminaire" data-reveal-img>
+            <img src="assets/happy-black-entrepreneur-and-his-coworkers-applaud-2026-01-08-22-47-33-utc.jpg"
+              alt="Équipe applaudissant lors d'un séminaire" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Séminaire</span>
+              <h3>Moment d'impact</h3>
+              <p>Cérémonie de clôture</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="formation" data-reveal-img>
+            <img src="assets/happy-mature-businesswoman-talking-to-group-of-sem-2026-03-24-00-27-24-utc.jpg"
+              alt="Formation en entreprise" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Formation</span>
+              <h3>Communication d'influence</h3>
+              <p>Module Executive</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item gallery__item--wide" data-cat="conference" data-reveal-img>
+            <img src="assets/diversity-people-talk-international-conference-par-2026-03-18-12-01-06-utc.jpg"
+              alt="Conférence internationale" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Conférence</span>
+              <h3>Forum International du Leadership</h3>
+              <p>Edition 2024 — 250+ dirigeants</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="formation" data-reveal-img>
+            <img src="assets/multiracial-young-creative-people-in-modern-office-2026-03-18-13-28-56-utc.jpg"
+              alt="Atelier en open space" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Formation</span>
+              <h3>Innovation & Créativité</h3>
+              <p>Atelier intensif</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item gallery__item--tall" data-cat="seminaire" data-reveal-img>
+            <img src="assets/young-woman-in-audience-back-view-2026-03-19-09-25-27-utc.jpg" alt="Vue sur une audience"
+              loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Séminaire</span>
+              <h3>Masterclass Dirigeants</h3>
+              <p>Audience captive</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+
+          <figure class="gallery__item" data-cat="coaching" data-reveal-img>
+            <img src="assets/presentation-black-man-or-talking-at-seminar-for-2026-01-09-09-40-19-utc.jpg"
+              alt="Session de coaching en entreprise" loading="lazy" decoding="async" />
+            <figcaption class="gallery__cap">
+              <span class="gallery__tag">Coaching</span>
+              <h3>Coaching exécutif</h3>
+              <p>Accompagnement dirigeant</p>
+            </figcaption>
+            <button class="gallery__zoom" aria-label="Agrandir l'image">
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M7 7h4M7 7v4M17 7h-4M17 7v4M7 17h4M7 17v-4M17 17h-4M17 17v-4" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" fill="none" />
+              </svg>
+            </button>
+          </figure>
+        </div>
+
+        <!-- Stats chiffres clés -->
+        <div class="realisations__stats reveal">
+          <div class="rstat">
+            <span class="rstat__num"><span data-count="250">0</span>+</span>
+            <span class="rstat__label">Participants formés</span>
+          </div>
+          <div class="rstat">
+            <span class="rstat__num"><span data-count="35">0</span>+</span>
+            <span class="rstat__label">Événements organisés</span>
+          </div>
+          <div class="rstat">
+            <span class="rstat__num"><span data-count="18">0</span></span>
+            <span class="rstat__label">Organisations accompagnées</span>
+          </div>
+          <div class="rstat">
+            <span class="rstat__num"><span data-count="97">0</span>%</span>
+            <span class="rstat__label">Taux de satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container faq__grid">
+        <div class="section-head reveal">
+          <span class="section-kicker">FAQ</span>
+          <h2 class="section-title">Questions <em>fréquentes</em>.</h2>
+          <p class="section-sub">Tout ce qu'il faut savoir avant de démarrer une collaboration.</p>
+        </div>
+
+        <div class="faq__list">
+          <details class="faq__item reveal" style="--d:0s">
+            <summary><span>Comment vos services améliorent-ils concrètement la performance d'une organisation
+                ?</span><span class="faq__plus"></span></summary>
+            <div class="faq__body">
+              <p>Nous analysons vos besoins, identifions les leviers de progrès et mettons en place des solutions
+                pratiques visant à renforcer les compétences, l'efficacité des équipes et les résultats opérationnels.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.06s">
+            <summary><span>À qui s'adressent vos accompagnements ?</span><span class="faq__plus"></span></summary>
+            <div class="faq__body">
+              <p>Nos services s'adressent aux entreprises, dirigeants, entrepreneurs, équipes professionnelles et
+                particuliers souhaitant développer leurs compétences et améliorer leurs performances.</p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.12s">
+            <summary><span>Quels résultats puis-je attendre ?</span><span class="faq__plus"></span></summary>
+            <div class="faq__body">
+              <p>Une meilleure organisation du travail, des équipes plus engagées, des compétences renforcées et une
+                amélioration mesurable des performances individuelles et collectives.</p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.18s">
+            <summary><span>Comment se déroule un accompagnement ?</span><span class="faq__plus"></span></summary>
+            <div class="faq__body">
+              <p>Chaque mission débute par un diagnostic, suivi d'un plan d'action personnalisé, puis d'un
+                accompagnement pratique avec évaluation des résultats.</p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.24s">
+            <summary><span>Vos solutions sont-elles adaptées au contexte local ?</span><span class="faq__plus"></span>
+            </summary>
+            <div class="faq__body">
+              <p>Oui. Nos approches tiennent compte des réalités économiques et professionnelles du Congo afin de
+                garantir des solutions concrètes et applicables.</p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.30s">
+            <summary><span>Proposez-vous des formations ou uniquement du conseil ?</span><span class="faq__plus"></span>
+            </summary>
+            <div class="faq__body">
+              <p>Nous combinons conseil stratégique, formation pratique et accompagnement opérationnel pour assurer des
+                résultats mesurables.</p>
+            </div>
+          </details>
+          <details class="faq__item reveal" style="--d:.36s">
+            <summary><span>Comment démarrer une collaboration avec vous ?</span><span class="faq__plus"></span>
+            </summary>
+            <div class="faq__body">
+              <p>Il suffit de nous contacter pour un premier échange afin d'analyser vos besoins et définir ensemble la
+                meilleure approche.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact" data-parallax-scene>
+      <div class="contact__bg" aria-hidden="true">
+        <div class="blob blob--3" data-parallax="0.1"></div>
+        <div class="blob blob--4" data-parallax="-0.14"></div>
+      </div>
+
+      <div class="container contact__grid">
+        <div class="contact__intro">
+          <div class="section-head reveal">
+            <span class="section-kicker section-kicker--light">Contact</span>
+            <h2 class="section-title section-title--light">Parlons de votre <em>projet</em>.</h2>
+            <p class="section-sub section-sub--light">Un premier échange, sans engagement, pour comprendre vos enjeux et
+              définir ensemble la meilleure approche.</p>
+          </div>
+
+          <ul class="contact__info reveal">
+            <li>
+              <span class="contact__label">Email</span>
+              <a href="mailto:contact@globalimpact.com">contact@globalimpact.com</a>
+            </li>
+            <li>
+              <span class="contact__label">Téléphone</span>
+              <a href="tel:+242068757984">+242 06 875 79 84</a>
+            </li>
+            <li>
+              <span class="contact__label">Bureau</span>
+              <span>Centre-ville Pointe-Noire, République du Congo</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <input type="text" id="fName" name="name" required autocomplete="name" placeholder=" " />
+            <label for="fName">Nom complet</label>
+          </div>
+          <div class="field">
+            <input type="email" id="fEmail" name="email" required autocomplete="email" placeholder=" " />
+            <label for="fEmail">Email professionnel</label>
+          </div>
+          <div class="field">
+            <input type="text" id="fOrg" name="org" autocomplete="organization" placeholder=" " />
+            <label for="fOrg">Organisation</label>
+          </div>
+          <div class="field">
+            <select id="fTopic" name="topic" required>
+              <option value="" disabled selected></option>
+              <option>Leadership</option>
+              <option>Développement personnel</option>
+              <option>Management stratégique</option>
+              <option>Commercial</option>
+              <option>Business</option>
+              <option>RH</option>
+              <option>QHSE</option>
+              <option>Autre</option>
+            </select>
+            <label for="fTopic">Domaine d'intérêt</label>
+          </div>
+          <div class="field field--full">
+            <textarea id="fMsg" name="message" rows="4" required placeholder=" "></textarea>
+            <label for="fMsg">Votre message</label>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full magnetic">
+            <span>Envoyer ma demande</span>
+            <svg viewBox="0 0 24 24" width="18" height="18">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <p class="contact__note" id="formNote" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting"
+          style="height:48px;width:auto;display:block;margin-bottom:12px;" />
+        <p>Créer un impact durable, humain et mesurable au cœur de chaque projet.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation footer">
+        <h4>Navigation</h4>
+        <a href="#about">Qui sommes-nous</a>
+        <a href="#activities">Nos activités</a>
+        <a href="formation.html">Formations</a>
+        <a href="#method">Méthode</a>
+        <a href="#levels">Parcours</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Domaines">
+        <h4>Expertises</h4>
+        <a href="#services">Leadership</a>
+        <a href="#services">Management</a>
+        <a href="#services">Commercial & Business</a>
+        <a href="#services">RH</a>
+        <a href="#services">QHSE</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Informations légales">
+        <h4>Légal</h4>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="conditions-utilisation.html">Conditions d'utilisation</a>
+        <a href="conformite-donnees.html">Conformité des données</a>
+      </nav>
+      <div class="footer__nav">
+        <h4>Contact</h4>
+        <a href="mailto:contact@globalimpact.com">contact@globalimpact.com</a>
+        <a href="tel:+242068757984">+242 06 875 79 84</a>
+        <span>Centre-ville Pointe-Noire, Congo</span>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <small>© <span id="year"></span> Global Impact Consulting — Tous droits réservés.</small>
+      <small>Design par <a href="https://www.rimiscky.fr" target="_blank">Rimiscky</a></small>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualisation de la photo" hidden>
+    <button class="lightbox__close" id="lbClose" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" width="22" height="22">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+      </svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Image précédente">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          fill="none" />
+      </svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Image suivante">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          fill="none" />
+      </svg>
+    </button>
+    <figure class="lightbox__stage">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <div class="lightbox__counter" id="lbCounter"></div>
+  </div>
+
+  <!-- Video modal -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Vidéo" hidden>
+    <button class="lightbox__close" id="vmClose" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" width="22" height="22">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+      </svg>
+    </button>
+    <div class="video-modal__stage">
+      <video id="vmPlayer" controls playsinline preload="none">
+        <source src="" type="video/mp4" />
+        <p>Votre navigateur ne supporte pas la lecture vidéo.</p>
+      </video>
+      <div class="video-modal__placeholder">
+        <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true">
+          <path d="M15 10l-4 4V6l4 4z" fill="currentColor" />
+        </svg>
+        <h3>Vidéo bientôt disponible</h3>
+        <p>Ajoutez votre fichier vidéo dans <code>assets/video-presentation.mp4</code> pour l'activer ici.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
