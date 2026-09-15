@@ -1,0 +1,83 @@
+<%- include('../partials/admin-top', { title: domain.name }) %>
+
+<% if (saved) { %><div class="alert alert-success">Domaine enregistré.</div><% } %>
+
+<form method="post" action="/admin/training/<%= domain.id %>">
+  <div class="card">
+    <h2>Informations du domaine</h2>
+    <label class="field">
+      <span class="label-text">Nom du domaine</span>
+      <input type="text" name="name" value="<%= domain.name %>" required />
+    </label>
+    <div class="two-col">
+      <label class="field">
+        <span class="label-text">Mot-clé (kicker)</span>
+        <input type="text" name="kicker" value="<%= domain.kicker %>" />
+      </label>
+      <label class="field">
+        <span class="label-text">Niveaux concernés</span>
+        <input type="text" name="level_label" value="<%= domain.level_label %>" />
+      </label>
+    </div>
+    <label class="field">
+      <span class="label-text">Description (page Formations)</span>
+      <textarea name="description" rows="4"><%= domain.description %></textarea>
+    </label>
+    <label class="checkbox-field">
+      <input type="checkbox" name="published" value="1" <%= domain.published ? 'checked' : '' %> />
+      <span>Domaine publié sur le site</span>
+    </label>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div>
+      <h2 style="margin-bottom:2px">Programmes de ce domaine (<%= programs.length %>)</h2>
+      <p class="hint" style="margin:0">Ces programmes apparaissent comme thèmes sur la page Formations et comme cartes dans l'onglet correspondant de la page d'accueil.</p>
+    </div>
+  </div>
+
+  <% programs.forEach(function (p, idx) { %>
+    <div class="list-item-block">
+      <form method="post" action="/admin/training/<%= domain.id %>/programs/<%= p.id %>">
+        <div class="two-col">
+          <label class="field">
+            <span class="label-text">Titre du programme</span>
+            <input type="text" name="title" value="<%= p.title %>" required />
+          </label>
+          <label class="checkbox-field" style="margin-top:30px">
+            <input type="checkbox" name="published" value="1" <%= p.published ? 'checked' : '' %> />
+            <span>Publié</span>
+          </label>
+        </div>
+        <label class="field">
+          <span class="label-text">Description</span>
+          <textarea name="description" rows="2"><%= p.description %></textarea>
+        </label>
+        <div class="row-actions">
+          <button type="submit" class="btn btn-sm btn-primary">Enregistrer</button>
+          <button type="submit" formaction="/admin/training/<%= domain.id %>/programs/<%= p.id %>/move" formnovalidate name="dir" value="up" class="btn btn-sm" <%= idx === 0 ? 'disabled' : '' %>>↑</button>
+          <button type="submit" formaction="/admin/training/<%= domain.id %>/programs/<%= p.id %>/move" formnovalidate name="dir" value="down" class="btn btn-sm" <%= idx === programs.length - 1 ? 'disabled' : '' %>>↓</button>
+          <button type="submit" formaction="/admin/training/<%= domain.id %>/programs/<%= p.id %>/delete" formnovalidate class="btn btn-sm btn-danger" onclick="return confirm('Supprimer ce programme ?')">Supprimer</button>
+        </div>
+      </form>
+    </div>
+  <% }) %>
+
+  <form method="post" action="/admin/training/<%= domain.id %>/programs" class="list-item-block" style="border-style:dashed">
+    <div class="list-item-title">Ajouter un programme</div>
+    <label class="field">
+      <span class="label-text">Titre</span>
+      <input type="text" name="title" required />
+    </label>
+    <label class="field">
+      <span class="label-text">Description</span>
+      <textarea name="description" rows="2"></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>
+
+<%- include('../partials/admin-bottom') %>

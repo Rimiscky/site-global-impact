@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#184E6C" />
+
+  <title><%= page.title %> — <%= settings.site_title %></title>
+  <meta name="description" content="<%= settings.meta_description %>" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://globalimpactconsulting.com/<%= page.slug %>.html" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23184E6C'/%3E%3Ctext x='50' y='64' font-family='Inter,Arial' font-size='44' font-weight='800' text-anchor='middle' fill='%23D4A574'%3EG%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Theme applied immediately to avoid flash -->
+  <script>
+    (function(){var t=localStorage.getItem("gic-theme"),d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d)document.documentElement.setAttribute("data-theme","dark");})();
+  </script>
+
+</head>
+<body class="legal">
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav is-scrolled" id="nav">
+    <a href="index.html" class="nav__logo" aria-label="Retour à l'accueil">
+      <svg viewBox="0 0 44 44" width="36" height="36" aria-hidden="true">
+        <defs><linearGradient id="gLogo" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#D4A574"/><stop offset="1" stop-color="#B8864A"/></linearGradient></defs>
+        <rect x="2" y="2" width="40" height="40" rx="11" fill="#0B1B2B"/>
+        <path d="M14 28c0-5 4-9 9-9 3 0 5 1 7 3l-3 3c-1-1-2-2-4-2-3 0-5 2-5 5s2 5 5 5c2 0 3-1 4-2v-2h-4v-3h7v7c-2 2-5 3-7 3-5 0-9-4-9-8z" fill="url(#gLogo)"/>
+      </svg>
+      <span>Global Impact <strong>Consulting</strong></span>
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
+      <a href="index.html#about" data-nav>Qui sommes-nous</a>
+      <a href="index.html#method" data-nav>Méthode</a>
+      <a href="index.html#services" data-nav>Formations</a>
+      <a href="index.html#realisations" data-nav>Réalisations</a>
+      <a href="index.html#faq" data-nav>FAQ</a>
+      <a href="index.html#contact" data-nav class="nav__cta">Nous contacter <span aria-hidden="true">→</span></a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+        <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </header>
+
+  <main>
+    <%- page.body_html %>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <strong><%= settings.site_title %></strong>
+        <p>Créer un impact durable, humain et mesurable au cœur de chaque projet.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Navigation footer">
+        <h4>Navigation</h4>
+        <a href="index.html#about">Qui sommes-nous</a>
+        <a href="index.html#method">Méthode</a>
+        <a href="index.html#services">Formations</a>
+        <a href="index.html#realisations">Réalisations</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <nav class="footer__nav" aria-label="Informations légales">
+        <h4>Légal</h4>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="conditions-utilisation.html">Conditions d'utilisation</a>
+        <a href="conformite-donnees.html">Conformité des données</a>
+      </nav>
+      <div class="footer__nav">
+        <h4>Contact</h4>
+        <a href="mailto:<%= settings.contact_email %>"><%= settings.contact_email %></a>
+        <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+        <span><%= settings.contact_address.split('\n')[0] %></span>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <small>© <span id="year"></span> <%= settings.site_title %> — Tous droits réservés.</small>
+      <small>Un impact durable, humain et mesurable.</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    // TOC scroll-spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.legal-article section[id]');
+      const tocLinks = document.querySelectorAll('.legal-toc a');
+      if (!sections.length) return;
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const id = e.target.id;
+            tocLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(s => spy.observe(s));
+    });
+  </script>
+</body>
+</html>

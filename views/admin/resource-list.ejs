@@ -1,0 +1,61 @@
+<%- include('../partials/admin-top', { title: config.plural }) %>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div>
+      <h2 style="margin-bottom:2px"><%= config.plural %></h2>
+      <p class="hint" style="margin:0">Utilisez les flèches pour changer l'ordre d'affichage sur le site.</p>
+    </div>
+    <a href="<%= basePath %>/new" class="btn btn-primary">+ Ajouter</a>
+  </div>
+
+  <% var imageField = config.fields.find(f => f.type === 'image'); %>
+  <% var titleField = config.fields.find(f => f.name === 'name' || f.name === 'title' || f.name === 'question') || config.fields[0]; %>
+  <% var subField = config.fields.find(f => f !== titleField && f.type !== 'image'); %>
+
+  <% if (!items.length) { %>
+    <p class="hint">Aucun élément pour le moment.</p>
+  <% } else { %>
+    <table class="list">
+      <thead>
+        <tr>
+          <% if (imageField) { %><th></th><% } %>
+          <th><%= titleField ? titleField.label : '' %></th>
+          <% if (subField) { %><th><%= subField.label %></th><% } %>
+          <% if (config.hasPublished) { %><th>Statut</th><% } %>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.forEach(function (item, idx) { %>
+          <tr>
+            <% if (imageField) { %>
+              <td><% if (item[imageField.name]) { %><img class="thumb" src="<%= item[imageField.name] %>" alt="" /><% } %></td>
+            <% } %>
+            <td><%- item[titleField.name] %></td>
+            <% if (subField) { %><td><%- (item[subField.name] || '').toString().slice(0, 80) %></td><% } %>
+            <% if (config.hasPublished) { %>
+              <td><span class="badge <%= item.published ? 'badge-on' : 'badge-off' %>"><%= item.published ? 'Publié' : 'Masqué' %></span></td>
+            <% } %>
+            <td class="row-actions">
+              <form method="post" action="<%= basePath %>/<%= item.id %>/move">
+                <input type="hidden" name="dir" value="up" />
+                <button type="submit" class="btn btn-sm" <%= idx === 0 ? 'disabled' : '' %>>↑</button>
+              </form>
+              <form method="post" action="<%= basePath %>/<%= item.id %>/move">
+                <input type="hidden" name="dir" value="down" />
+                <button type="submit" class="btn btn-sm" <%= idx === items.length - 1 ? 'disabled' : '' %>>↓</button>
+              </form>
+              <a href="<%= basePath %>/<%= item.id %>/edit" class="btn btn-sm">Modifier</a>
+              <form method="post" action="<%= basePath %>/<%= item.id %>/delete" data-confirm="Supprimer définitivement ?">
+                <button type="submit" class="btn btn-sm btn-danger">Suppr.</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</div>
+
+<%- include('../partials/admin-bottom') %>

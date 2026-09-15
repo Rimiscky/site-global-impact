@@ -1,0 +1,26 @@
+<%- include('../partials/admin-top', { title: 'Mon compte' }) %>
+
+<% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+<% if (success) { %><div class="alert alert-success"><%= success %></div><% } %>
+
+<div class="card">
+  <h2>Changer mon mot de passe</h2>
+  <p class="hint">Connecté en tant que <%= adminUser.email %>.</p>
+  <form method="post" action="/admin/account">
+    <label class="field">
+      <span class="label-text">Mot de passe actuel</span>
+      <input type="password" name="current_password" required />
+    </label>
+    <label class="field">
+      <span class="label-text">Nouveau mot de passe</span>
+      <input type="password" name="new_password" minlength="8" required />
+    </label>
+    <label class="field">
+      <span class="label-text">Confirmer le nouveau mot de passe</span>
+      <input type="password" name="new_password_confirm" minlength="8" required />
+    </label>
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+  </form>
+</div>
+
+<%- include('../partials/admin-bottom') %>

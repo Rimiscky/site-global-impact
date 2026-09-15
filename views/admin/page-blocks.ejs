@@ -1,0 +1,61 @@
+<%- include('../partials/admin-top', { title: def.label }) %>
+
+<% if (saved) { %><div class="alert alert-success">Modifications enregistrées.</div><% } %>
+
+<form method="post" action="/admin/pages/<%= pageKey %>">
+  <div class="card">
+    <h2><%= def.label %></h2>
+    <p class="hint">Modifiez les textes de cette page. Les changements apparaissent immédiatement sur le site.</p>
+
+    <% def.blocks.forEach(function (b) { %>
+      <% if (b.type === 'text') { %>
+        <label class="field">
+          <span class="label-text"><%= b.label %></span>
+          <input type="text" name="<%= b.key %>" value="<%= values[b.key] %>" />
+        </label>
+      <% } else if (b.type === 'textarea') { %>
+        <label class="field">
+          <span class="label-text"><%= b.label %></span>
+          <% if (b.isLines) { %>
+            <textarea name="<%= b.key %>" rows="4"><%= (values[b.key]||[]).join('\n') %></textarea>
+            <span class="field-hint">Une valeur par ligne.</span>
+          <% } else { %>
+            <textarea name="<%= b.key %>" rows="4"><%= values[b.key] %></textarea>
+          <% } %>
+        </label>
+      <% } else if (b.type === 'richtext') { %>
+        <label class="field">
+          <span class="label-text"><%= b.label %></span>
+          <div data-richtext="<%= b.key %>"></div>
+          <textarea name="<%= b.key %>" data-richtext-source style="display:none"><%- values[b.key] %></textarea>
+        </label>
+      <% } else if (b.type === 'list') { %>
+        <div class="field">
+          <span class="label-text"><%= b.label %></span>
+          <% for (let i = 0; i < b.fixedCount; i++) { %>
+            <% const row = (values[b.key] && values[b.key][i]) || {}; %>
+            <div class="list-item-block">
+              <div class="list-item-title">Élément <%= i + 1 %></div>
+              <div class="two-col">
+                <% b.itemFields.forEach(function (f) { %>
+                  <label class="field">
+                    <span class="label-text"><%= f.label %></span>
+                    <% if (f.type === 'textarea') { %>
+                      <textarea name="<%= b.key %>[<%= i %>][<%= f.name %>]" rows="2"><%= row[f.name] || '' %></textarea>
+                    <% } else { %>
+                      <input type="text" name="<%= b.key %>[<%= i %>][<%= f.name %>]" value="<%= row[f.name] || '' %>" />
+                    <% } %>
+                  </label>
+                <% }) %>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
+    <% }) %>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>
+
+<%- include('../partials/admin-bottom') %>

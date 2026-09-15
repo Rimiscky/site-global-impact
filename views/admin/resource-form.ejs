@@ -1,0 +1,58 @@
+<% var hasImage = config.fields.some(f => f.type === 'image'); %>
+<%- include('../partials/admin-top', { title: (item ? 'Modifier' : 'Ajouter') + ' — ' + config.singular }) %>
+
+<form method="post" action="<%= item ? basePath + '/' + item.id : basePath %>" <%= hasImage ? 'enctype="multipart/form-data"' : '' %>>
+  <div class="card">
+    <h2><%= item ? 'Modifier' : 'Ajouter' %> — <%= config.singular %></h2>
+
+    <% config.fields.forEach(function (f) { %>
+      <% var value = item ? item[f.name] : ''; %>
+
+      <% if (f.type === 'image') { %>
+        <label class="field">
+          <span class="label-text"><%= f.label %></span>
+          <% if (value) { %>
+            <div class="image-preview"><img src="<%= value %>" alt="" /><span class="hint"><%= value %></span></div>
+          <% } %>
+          <input type="file" name="<%= f.name %>" accept="image/*" <%= (!item && f.required) ? 'required' : '' %> />
+          <span class="field-hint">Laissez vide pour conserver l'image actuelle.</span>
+        </label>
+
+      <% } else if (f.type === 'richtext') { %>
+        <label class="field">
+          <span class="label-text"><%= f.label %></span>
+          <div data-richtext="<%= f.name %>"></div>
+          <textarea name="<%= f.name %>" data-richtext-source style="display:none"><%- value %></textarea>
+        </label>
+
+      <% } else if (f.type === 'select') { %>
+        <label class="field">
+          <span class="label-text"><%= f.label %></span>
+          <select name="<%= f.name %>">
+            <% f.options.forEach(function (opt) { %>
+              <option value="<%= opt %>" <%= value === opt ? 'selected' : '' %>><%= opt %></option>
+            <% }) %>
+          </select>
+        </label>
+
+      <% } else { %>
+        <label class="field">
+          <span class="label-text"><%= f.label %></span>
+          <input type="text" name="<%= f.name %>" value="<%= value || '' %>" <%= f.required ? 'required' : '' %> />
+        </label>
+      <% } %>
+    <% }) %>
+
+    <% if (config.hasPublished) { %>
+      <label class="checkbox-field">
+        <input type="checkbox" name="published" value="1" <%= (!item || item.published) ? 'checked' : '' %> />
+        <span>Publié sur le site</span>
+      </label>
+    <% } %>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="<%= basePath %>" class="btn">Annuler</a>
+  </div>
+</form>
+
+<%- include('../partials/admin-bottom') %>

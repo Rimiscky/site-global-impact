@@ -239,7 +239,7 @@
   /* ---------- CONTACT FORM ---------- */
   const form = $('#contactForm');
   const note = $('#formNote');
-  form?.addEventListener('submit', e => {
+  form?.addEventListener('submit', async e => {
     e.preventDefault();
     const fd = new FormData(form);
     const name = fd.get('name');
@@ -250,11 +250,35 @@
       }
       return;
     }
-    if (note) {
-      note.textContent = `✓ Merci ${String(name).split(' ')[0]}, votre message est bien envoyé. Nous revenons vers vous sous 24h.`;
-      note.style.color = '#E3BE7C';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fd.get('name'),
+          email: fd.get('email'),
+          org: fd.get('org') || '',
+          phone: fd.get('phone') || '',
+          topic: fd.get('topic') || '',
+          message: fd.get('message'),
+        }),
+      });
+      if (!res.ok) throw new Error('request_failed');
+      if (note) {
+        note.textContent = `✓ Merci ${String(name).split(' ')[0]}, votre message est bien envoyé. Nous revenons vers vous sous 24h.`;
+        note.style.color = '#E3BE7C';
+      }
+      form.reset();
+    } catch (err) {
+      if (note) {
+        note.textContent = '⚠︎ Une erreur est survenue. Merci de réessayer ou de nous écrire directement par email.';
+        note.style.color = '#E3BE7C';
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
-    form.reset();
   });
 
   /* ---------- GALLERY — reveal with stagger + filters ---------- */

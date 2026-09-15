@@ -1,0 +1,40 @@
+<%- include('../partials/admin-top', { title: 'Catalogue de formations' }) %>
+
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div>
+      <h2 style="margin-bottom:2px">Domaines de formation</h2>
+      <p class="hint" style="margin:0">Chaque domaine regroupe plusieurs programmes, affichés sur la page Formations et dans les onglets de l'accueil.</p>
+    </div>
+    <a href="/admin/training/new" class="btn btn-primary">+ Ajouter un domaine</a>
+  </div>
+
+  <table class="list">
+    <thead><tr><th>Domaine</th><th>Programmes</th><th>Statut</th><th></th></tr></thead>
+    <tbody>
+      <% domains.forEach(function (d, idx) { %>
+        <tr>
+          <td><strong><%= d.name %></strong><br><span class="hint"><%= d.kicker %></span></td>
+          <td><%= d.programCount %></td>
+          <td><span class="badge <%= d.published ? 'badge-on' : 'badge-off' %>"><%= d.published ? 'Publié' : 'Masqué' %></span></td>
+          <td class="row-actions">
+            <form method="post" action="/admin/training/<%= d.id %>/move">
+              <input type="hidden" name="dir" value="up" />
+              <button type="submit" class="btn btn-sm" <%= idx === 0 ? 'disabled' : '' %>>↑</button>
+            </form>
+            <form method="post" action="/admin/training/<%= d.id %>/move">
+              <input type="hidden" name="dir" value="down" />
+              <button type="submit" class="btn btn-sm" <%= idx === domains.length - 1 ? 'disabled' : '' %>>↓</button>
+            </form>
+            <a href="/admin/training/<%= d.id %>/edit" class="btn btn-sm">Modifier</a>
+            <form method="post" action="/admin/training/<%= d.id %>/delete" data-confirm="Supprimer ce domaine et tous ses programmes ?">
+              <button type="submit" class="btn btn-sm btn-danger">Suppr.</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../partials/admin-bottom') %>

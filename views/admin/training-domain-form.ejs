@@ -1,0 +1,27 @@
+<%- include('../partials/admin-top', { title: 'Ajouter un domaine' }) %>
+
+<form method="post" action="/admin/training">
+  <div class="card">
+    <h2>Nouveau domaine de formation</h2>
+    <label class="field">
+      <span class="label-text">Nom du domaine</span>
+      <input type="text" name="name" required placeholder="Ex : Leadership" />
+    </label>
+    <label class="field">
+      <span class="label-text">Mot-clé (kicker)</span>
+      <input type="text" name="kicker" placeholder="Ex : Domaine 8" />
+    </label>
+    <label class="field">
+      <span class="label-text">Niveaux concernés</span>
+      <input type="text" name="level_label" placeholder="Ex : 7 programmes · Niveaux Avancé & Executive" />
+    </label>
+    <label class="field">
+      <span class="label-text">Description</span>
+      <textarea name="description" rows="4"></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Créer le domaine</button>
+    <a href="/admin/training" class="btn">Annuler</a>
+  </div>
+</form>
+
+<%- include('../partials/admin-bottom') %>
