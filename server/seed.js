@@ -15,11 +15,12 @@ const { setBlock, setSetting, getSetting } = require('./lib/content');
 const legacyPath = path.join(__dirname, '..', 'scripts', 'legacy-content.json');
 const legacy = fs.existsSync(legacyPath) ? JSON.parse(fs.readFileSync(legacyPath, 'utf8')) : null;
 
+const blockExists = db.prepare('SELECT 1 FROM content_blocks WHERE page = ? AND block_key = ?');
+
 function seedBlocksForPage(page, data) {
   const def = PAGES[page];
-  const already = db.prepare('SELECT COUNT(*) c FROM content_blocks WHERE page = ?').get(page).c;
-  if (already > 0) return;
   for (const b of def.blocks) {
+    if (blockExists.get(page, b.key)) continue; // never clobber an existing (possibly edited) block
     let value = data[b.key];
     if (value === undefined) value = '';
     if (b.type === 'list') value = JSON.stringify(value || []);
