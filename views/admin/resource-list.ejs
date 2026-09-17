@@ -30,7 +30,7 @@
         <% items.forEach(function (item, idx) { %>
           <tr>
             <% if (imageField) { %>
-              <td><% if (item[imageField.name]) { %><img class="thumb" src="<%= item[imageField.name] %>" alt="" /><% } %></td>
+              <td><% if (item[imageField.name]) { %><img class="thumb" src="<%= publicPath(item[imageField.name]) %>" alt="" /><% } %></td>
             <% } %>
             <td><%- item[titleField.name] %></td>
             <% if (subField) { %><td><%- (item[subField.name] || '').toString().slice(0, 80) %></td><% } %>

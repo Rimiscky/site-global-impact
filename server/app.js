@@ -7,11 +7,13 @@ const db = require('./db');
 const adminRouter = require('./routes/admin');
 const apiRouter = require('./routes/api');
 const siteRouter = require('./routes/site');
+const { publicPath } = require('./lib/paths');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
+app.locals.publicPath = publicPath;
 
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));
 app.use(express.json({ limit: '1mb' }));

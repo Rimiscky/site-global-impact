@@ -12,7 +12,7 @@
         <label class="field">
           <span class="label-text"><%= f.label %></span>
           <% if (value) { %>
-            <div class="image-preview"><img src="<%= value %>" alt="" /><span class="hint"><%= value %></span></div>
+            <div class="image-preview"><img src="<%= publicPath(value) %>" alt="" /><span class="hint"><%= value %></span></div>
           <% } %>
           <input type="file" name="<%= f.name %>" accept="image/*" <%= (!item && f.required) ? 'required' : '' %> />
           <span class="field-hint">Laissez vide pour conserver l'image actuelle.</span>

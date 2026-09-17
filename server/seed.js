@@ -39,15 +39,20 @@ function run() {
     seedBlocksForPage('about', legacy.about || {});
     seedBlocksForPage('contact', legacy.contact || {});
 
-    // ---- settings ----
-    if (!getSetting('site_title')) {
-      setSetting('site_title', 'Global Impact Consulting');
-      setSetting('site_tagline', 'Formation, Coaching & Conseil stratégique');
-      setSetting('contact_email', legacy.contact?.email || 'contact@globalimpact.com');
-      setSetting('contact_phone', legacy.contact?.phone || '+242 06 875 79 84');
-      setSetting('contact_address', legacy.contact?.address || 'Centre-ville Pointe-Noire\nRépublique du Congo');
-      setSetting('contact_hours', legacy.contact?.hours || 'Lun – Ven · 8h00 – 17h00');
-      setSetting('meta_description', "Global Impact Consulting (GIC) — cabinet de formation, coaching et conseil stratégique.");
+    // ---- settings ---- (only fills a setting that doesn't already exist, so it
+    // can pick up newly added defaults without ever clobbering an edited value)
+    const defaultSettings = {
+      site_title: 'Global Impact Consulting',
+      site_tagline: 'Formation, Coaching & Conseil stratégique',
+      contact_email: legacy.contact?.email || 'contact@globalimpact.com',
+      contact_phone: legacy.contact?.phone || '+242 06 875 79 84',
+      contact_address: legacy.contact?.address || 'Centre-ville Pointe-Noire\nRépublique du Congo',
+      contact_hours: legacy.contact?.hours || 'Lun – Ven · 8h00 – 17h00',
+      meta_description: 'Global Impact Consulting (GIC) — cabinet de formation, coaching et conseil stratégique.',
+      site_logo: 'assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png',
+    };
+    for (const [key, value] of Object.entries(defaultSettings)) {
+      if (!getSetting(key)) setSetting(key, value);
     }
 
     // ---- training domains + programs ----

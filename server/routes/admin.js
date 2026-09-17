@@ -141,11 +141,13 @@ const SETTINGS_FIELDS = [
 router.get('/settings', (req, res) => {
   const values = {};
   for (const f of SETTINGS_FIELDS) values[f.name] = getSetting(f.name);
+  values.site_logo = getSetting('site_logo');
   res.render('admin/settings', { fields: SETTINGS_FIELDS, values, saved: req.query.saved === '1' });
 });
 
-router.post('/settings', (req, res) => {
+router.post('/settings', upload.single('logo'), (req, res) => {
   for (const f of SETTINGS_FIELDS) setSetting(f.name, (req.body[f.name] ?? '').toString());
+  if (req.file) setSetting('site_logo', recordMedia(req.file));
   res.redirect('/admin/settings?saved=1');
 });
 

@@ -2,10 +2,20 @@
 
 <% if (saved) { %><div class="alert alert-success">Réglages enregistrés.</div><% } %>
 
-<form method="post" action="/admin/settings">
+<form method="post" action="/admin/settings" enctype="multipart/form-data">
   <div class="card">
     <h2>Réglages généraux</h2>
     <p class="hint">Ces informations sont utilisées sur l'ensemble du site (pied de page, page contact, SEO).</p>
+
+    <label class="field">
+      <span class="label-text">Logo du site</span>
+      <% if (values.site_logo) { %>
+        <div class="image-preview"><img src="<%= publicPath(values.site_logo) %>" alt="" /></div>
+      <% } %>
+      <input type="file" name="logo" accept="image/*" />
+      <span class="field-hint">Laissez vide pour conserver le logo actuel. Utilisé dans le menu et le pied de page de toutes les pages.</span>
+    </label>
+
     <% fields.forEach(function (f) { %>
       <label class="field">
         <span class="label-text"><%= f.label %></span>
