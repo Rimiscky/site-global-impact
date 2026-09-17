@@ -2,10 +2,9 @@
 
 <div class="card">
   <h2>Ajouter une image</h2>
-  <p class="hint">Formats acceptés : JPG, PNG, WebP, GIF, SVG — 8 Mo maximum.</p>
-  <form method="post" action="/admin/media" enctype="multipart/form-data" style="display:flex;gap:12px;align-items:center">
-    <input type="file" name="file" accept="image/*" required />
-    <button type="submit" class="btn btn-primary">Envoyer</button>
+  <form method="post" action="/admin/media" enctype="multipart/form-data">
+    <%- include('../partials/dropzone', { name: 'file', required: true, hint: 'ou cliquez pour parcourir — JPG, PNG, WebP, GIF, SVG (8 Mo max)' }) %>
+    <button type="submit" class="btn btn-primary" style="margin-top:14px">Envoyer</button>
   </form>
 </div>
 

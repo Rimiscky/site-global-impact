@@ -1,14 +1,110 @@
     </div>
   </div>
 </div>
+<script>
+  // Confirm destructive actions
+  document.querySelectorAll('[data-confirm]').forEach(function (el) {
+    el.addEventListener('submit', function (e) {
+      if (!confirm(el.getAttribute('data-confirm'))) e.preventDefault();
+    });
+  });
+
+  // Drag-and-drop image picker (views/partials/dropzone.ejs). Pure vanilla JS,
+  // kept in its own <script> so a CDN hiccup on the rich-text editor below
+  // can never take this — or the confirm() handler above — down with it.
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + ' o';
+    if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' Ko';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' Mo';
+  }
+
+  document.querySelectorAll('[data-dropzone]').forEach(function (zone) {
+    var input = zone.querySelector('.dropzone__input');
+    var preview = zone.querySelector('[data-role="preview"]');
+    var filename = zone.querySelector('[data-role="filename"]');
+    var clearBtn = zone.querySelector('[data-role="clear"]');
+    var original = zone.getAttribute('data-original') || '';
+
+    function showFile(file) {
+      if (!file) return;
+      zone.classList.remove('is-empty');
+      filename.hidden = false;
+      filename.textContent = file.name + ' · ' + formatSize(file.size);
+      clearBtn.hidden = false;
+      if (file.type.startsWith('image/')) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          preview.innerHTML = '<img src="' + e.target.result + '" alt="" />';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function reset() {
+      input.value = '';
+      filename.hidden = true;
+      clearBtn.hidden = true;
+      if (original) {
+        preview.innerHTML = '<img src="' + original + '" alt="" />';
+        zone.classList.remove('is-empty');
+      } else {
+        preview.innerHTML = '';
+        zone.classList.add('is-empty');
+      }
+    }
+
+    input.addEventListener('change', function () {
+      if (input.files && input.files[0]) showFile(input.files[0]);
+    });
+
+    clearBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      reset();
+    });
+
+    ['dragenter', 'dragover'].forEach(function (evt) {
+      zone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        zone.classList.add('is-dragover');
+      });
+    });
+    ['dragleave', 'dragend'].forEach(function (evt) {
+      zone.addEventListener(evt, function (e) {
+        e.preventDefault();
+        zone.classList.remove('is-dragover');
+      });
+    });
+    zone.addEventListener('drop', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      zone.classList.remove('is-dragover');
+      var files = e.dataTransfer.files;
+      if (files && files[0]) {
+        input.files = files;
+        showFile(files[0]);
+      }
+    });
+  });
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.6/quill.snow.min.css" rel="stylesheet" />
 <script>
   // Turns every <div data-richtext="fieldName"> into a Quill editor and
-  // syncs its HTML into a hidden input named fieldName on submit.
+  // syncs its HTML into a hidden input named fieldName on submit. If the
+  // CDN didn't load (offline, blocked network), fall back to the plain
+  // textarea instead of leaving the field with no way to edit it at all.
   document.querySelectorAll('[data-richtext]').forEach(function (el) {
     var fieldName = el.getAttribute('data-richtext');
     var hidden = document.querySelector('input[type=hidden][name="' + fieldName + '"], textarea[name="' + fieldName + '"][data-richtext-source]');
+
+    if (typeof Quill === 'undefined') {
+      if (hidden) hidden.style.display = 'block';
+      return;
+    }
+
     var initial = hidden ? hidden.value : '';
     var editorDiv = document.createElement('div');
     editorDiv.className = 'rt-editor';
@@ -21,13 +117,6 @@
         if (hidden) hidden.value = quill.root.innerHTML;
       });
     }
-  });
-
-  // Confirm destructive actions
-  document.querySelectorAll('[data-confirm]').forEach(function (el) {
-    el.addEventListener('submit', function (e) {
-      if (!confirm(el.getAttribute('data-confirm'))) e.preventDefault();
-    });
   });
 </script>
 </body>
