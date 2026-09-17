@@ -279,10 +279,9 @@
     <section class="clients" id="clients">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-kicker">Références</span>
-          <h2 class="section-title">Ils nous ont fait, ils nous font et ils nous feront <em>confiance</em>.</h2>
-          <p class="section-sub">Entreprises, institutions et organisations qui nous ont confié leurs projets - hier,
-            aujourd'hui et demain.</p>
+          <span class="section-kicker"><%= blocks.clients_kicker %></span>
+          <h2 class="section-title"><%- blocks.clients_title_html %></h2>
+          <p class="section-sub"><%= blocks.clients_desc %></p>
         </div>
       </div>
 
@@ -378,10 +377,9 @@
     <section class="services" id="services">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-kicker">Nos formations</span>
-          <h2 class="section-title">6 domaines, <em>des dizaines</em> de programmes.</h2>
-          <p class="section-sub">Chaque programme combine conseil, formation pratique et accompagnement opérationnel
-            pour assurer des résultats mesurables.</p>
+          <span class="section-kicker"><%= blocks.services_kicker %></span>
+          <h2 class="section-title"><%- blocks.services_title_html %></h2>
+          <p class="section-sub"><%= blocks.services_desc %></p>
         </div>
 
         <div class="services__tabs" role="tablist">

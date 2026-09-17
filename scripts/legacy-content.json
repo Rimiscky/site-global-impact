@@ -121,7 +121,13 @@
     "contact_kicker": "Contact",
     "contact_title_html": "Parlons de votre <em>projet</em>.",
     "contact_desc": "Un premier échange, sans engagement, pour comprendre vos enjeux et définir ensemble la meilleure approche.",
-    "footer_tagline": "Créer un impact durable, humain et mesurable au cœur de chaque projet."
+    "footer_tagline": "Créer un impact durable, humain et mesurable au cœur de chaque projet.",
+    "clients_kicker": "Références",
+    "clients_title_html": "Ils nous ont fait, ils nous font et ils nous feront <em>confiance</em>.",
+    "clients_desc": "Entreprises, institutions et organisations qui nous ont confié leurs projets - hier, aujourd'hui et demain.",
+    "services_kicker": "Nos formations",
+    "services_title_html": "6 domaines, <em>des dizaines</em> de programmes.",
+    "services_desc": "Chaque programme combine conseil, formation pratique et accompagnement opérationnel pour assurer des résultats mesurables."
   },
   "gallery": [
     {
