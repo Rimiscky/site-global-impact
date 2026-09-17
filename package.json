@@ -1,0 +1,34 @@
+{
+  "name": "site-global-impact",
+  "version": "1.0.0",
+  "description": "Site vitrine et back office du cabinet Global Impact Consulting (GIC) : formation, coaching et conseil stratégique. Application Node/Express + SQLite avec panneau d'administration façon WordPress/PrestaShop.",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "postinstall": "node server/seed.js",
+    "seed": "node server/seed.js",
+    "extract-legacy": "node scripts/extract-legacy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rimiscky/site-global-impact.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rimiscky/site-global-impact/issues"
+  },
+  "homepage": "https://github.com/Rimiscky/site-global-impact#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.4.0"
+  }
+}

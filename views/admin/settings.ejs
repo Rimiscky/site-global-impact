@@ -1,0 +1,23 @@
+<%- include('../partials/admin-top', { title: 'Réglages du site' }) %>
+
+<% if (saved) { %><div class="alert alert-success">Réglages enregistrés.</div><% } %>
+
+<form method="post" action="/admin/settings">
+  <div class="card">
+    <h2>Réglages généraux</h2>
+    <p class="hint">Ces informations sont utilisées sur l'ensemble du site (pied de page, page contact, SEO).</p>
+    <% fields.forEach(function (f) { %>
+      <label class="field">
+        <span class="label-text"><%= f.label %></span>
+        <% if (f.textarea) { %>
+          <textarea name="<%= f.name %>" rows="3"><%= values[f.name] %></textarea>
+        <% } else { %>
+          <input type="text" name="<%= f.name %>" value="<%= values[f.name] %>" />
+        <% } %>
+      </label>
+    <% }) %>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>
+
+<%- include('../partials/admin-bottom') %>

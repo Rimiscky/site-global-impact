@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= typeof title !== 'undefined' ? title + ' — ' : '' %>Back office — Global Impact Consulting</title>
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body>
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar__brand">Global Impact <span>Admin</span></div>
+    <nav class="admin-nav">
+      <div class="admin-nav-group">
+        <div class="admin-nav-group__label">Tableau de bord</div>
+        <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>">Vue d'ensemble</a>
+        <a href="/admin/messages" class="<%= currentPath.startsWith('/admin/messages') ? 'active' : '' %>">Messages reçus</a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-group__label">Pages du site</div>
+        <a href="/admin/pages/home" class="<%= currentPath === '/admin/pages/home' ? 'active' : '' %>">Accueil</a>
+        <a href="/admin/pages/formation" class="<%= currentPath === '/admin/pages/formation' ? 'active' : '' %>">Formations (intro)</a>
+        <a href="/admin/pages/about" class="<%= currentPath === '/admin/pages/about' ? 'active' : '' %>">Qui sommes-nous</a>
+        <a href="/admin/pages/contact" class="<%= currentPath === '/admin/pages/contact' ? 'active' : '' %>">Contact</a>
+        <a href="/admin/legal" class="<%= currentPath.startsWith('/admin/legal') ? 'active' : '' %>">Pages légales</a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-group__label">Contenus</div>
+        <a href="/admin/training" class="<%= currentPath.startsWith('/admin/training') ? 'active' : '' %>">Formations (catalogue)</a>
+        <a href="/admin/team" class="<%= currentPath.startsWith('/admin/team') ? 'active' : '' %>">Équipe</a>
+        <a href="/admin/clients" class="<%= currentPath.startsWith('/admin/clients') ? 'active' : '' %>">Références clients</a>
+        <a href="/admin/gallery" class="<%= currentPath.startsWith('/admin/gallery') ? 'active' : '' %>">Réalisations</a>
+        <a href="/admin/history" class="<%= currentPath.startsWith('/admin/history') ? 'active' : '' %>">Notre histoire</a>
+        <a href="/admin/faq" class="<%= currentPath.startsWith('/admin/faq') ? 'active' : '' %>">FAQ</a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-group__label">Système</div>
+        <a href="/admin/media" class="<%= currentPath.startsWith('/admin/media') ? 'active' : '' %>">Médiathèque</a>
+        <a href="/admin/settings" class="<%= currentPath.startsWith('/admin/settings') ? 'active' : '' %>">Réglages du site</a>
+        <a href="/admin/account" class="<%= currentPath.startsWith('/admin/account') ? 'active' : '' %>">Mon compte</a>
+      </div>
+    </nav>
+  </aside>
+  <div class="admin-main">
+    <div class="admin-topbar">
+      <h1><%= typeof title !== 'undefined' ? title : 'Back office' %></h1>
+      <div class="admin-topbar__user">
+        <a href="/" target="_blank" rel="noopener">Voir le site ↗</a>
+        <span><%= adminUser.name %></span>
+        <form action="/admin/logout" method="post" style="margin:0">
+          <button type="submit" class="btn-link" style="color:#64707B">Déconnexion</button>
+        </form>
+      </div>
+    </div>
+    <div class="admin-content">

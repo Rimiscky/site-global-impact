@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connexion — Back office</title>
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body>
+  <div class="login-shell">
+    <div class="login-card">
+      <h1>Back office</h1>
+      <p class="hint">Global Impact Consulting</p>
+      <% if (error) { %><div class="alert alert-error"><%= error %></div><% } %>
+      <form method="post" action="/admin/login">
+        <label class="field">
+          <span class="label-text">Email</span>
+          <input type="email" name="email" required autofocus />
+        </label>
+        <label class="field">
+          <span class="label-text">Mot de passe</span>
+          <input type="password" name="password" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<%- include('../partials/admin-top', { title: 'Médiathèque' }) %>
+
+<div class="card">
+  <h2>Ajouter une image</h2>
+  <p class="hint">Formats acceptés : JPG, PNG, WebP, GIF, SVG — 8 Mo maximum.</p>
+  <form method="post" action="/admin/media" enctype="multipart/form-data" style="display:flex;gap:12px;align-items:center">
+    <input type="file" name="file" accept="image/*" required />
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Toutes les images (<%= items.length %>)</h2>
+  <% if (!items.length) { %>
+    <p class="hint">Aucune image envoyée pour le moment. Les images de démarrage restent disponibles dans /assets et /logo.</p>
+  <% } else { %>
+    <div class="media-grid">
+      <% items.forEach(function (m) { %>
+        <figure>
+          <img src="/uploads/<%= m.filename %>" alt="<%= m.original_name %>" />
+          <figcaption>
+            <code title="/uploads/<%= m.filename %>">/uploads/<%= m.filename %></code>
+            <form method="post" action="/admin/media/<%= m.id %>/delete" data-confirm="Supprimer cette image ?">
+              <button type="submit" class="btn-link" style="color:#C0392B">Suppr.</button>
+            </form>
+          </figcaption>
+        </figure>
+      <% }) %>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/admin-bottom') %>

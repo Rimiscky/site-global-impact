@@ -1,0 +1,57 @@
+<%
+  // navColumns: array of up to 2 { label, ariaLabel, links: [{ href, text }] }
+  // Falls back to the formation/contact-style columns if not provided.
+  var columns = typeof navColumns !== 'undefined' ? navColumns : [
+    {
+      label: 'Navigation', ariaLabel: 'Navigation',
+      links: [
+        { href: 'index.html#about', text: 'Qui sommes-nous' },
+        { href: 'index.html#activities', text: 'Nos activités' },
+        { href: 'formation.html', text: 'Formations' },
+        { href: 'index.html#realisations', text: 'Réalisations' },
+        { href: 'index.html#faq', text: 'FAQ' },
+      ],
+    },
+    {
+      label: 'Formations', ariaLabel: 'Domaines de formation',
+      links: [
+        { href: 'formation.html#leadership', text: 'Leadership' },
+        { href: 'formation.html#strat', text: 'Management stratégique' },
+        { href: 'formation.html#com', text: 'Commercial' },
+        { href: 'formation.html#rh', text: 'RH' },
+        { href: 'formation.html#qhse', text: 'QHSE' },
+      ],
+    },
+  ];
+%>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="<%= settings.site_title %>"
+          style="height:48px;width:auto;display:block;margin-bottom:12px;" />
+        <p><%= (typeof footerTagline !== 'undefined' && footerTagline) || 'Créer un impact durable, humain et mesurable au cœur de chaque projet.' %></p>
+      </div>
+      <% columns.forEach(function (col) { %>
+        <nav class="footer__nav" aria-label="<%= col.ariaLabel %>">
+          <h4><%= col.label %></h4>
+          <% col.links.forEach(function (l) { %><a href="<%= l.href %>"><%= l.text %></a><% }) %>
+        </nav>
+      <% }) %>
+      <nav class="footer__nav" aria-label="Informations légales">
+        <h4>Légal</h4>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="conditions-utilisation.html">Conditions d'utilisation</a>
+        <a href="conformite-donnees.html">Conformité des données</a>
+      </nav>
+      <div class="footer__nav">
+        <h4>Contact</h4>
+        <a href="mailto:<%= settings.contact_email %>"><%= settings.contact_email %></a>
+        <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+        <span><%= settings.contact_address.split('\n')[0] %></span>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <small>© <span id="year"></span> <%= settings.site_title %> — Tous droits réservés.</small>
+      <small>Un impact durable, humain et mesurable.</small>
+    </div>
+  </footer>

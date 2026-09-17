@@ -1,0 +1,27 @@
+<%- include('../partials/admin-top', { title: page.title }) %>
+
+<% if (saved) { %><div class="alert alert-success">Page enregistrée.</div><% } %>
+
+<form method="post" action="/admin/legal/<%= page.slug %>">
+  <div class="card">
+    <h2><%= page.title %></h2>
+    <p class="hint">Contenu juridique — à faire relire par un professionnel avant toute mise en production majeure.</p>
+    <label class="field">
+      <span class="label-text">Titre de la page</span>
+      <input type="text" name="title" value="<%= page.title %>" />
+    </label>
+    <label class="field">
+      <span class="label-text">Contenu de la page (HTML)</span>
+      <span class="field-hint">
+        Cette page utilise une mise en page structurée (sommaire, sections numérotées) qui ne peut pas être
+        éditée avec l'éditeur visuel sans être cassée. Modifiez le texte directement dans le code HTML
+        ci-dessous en conservant les balises existantes (&lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;…). En cas de doute,
+        faites relire par votre prestataire technique avant d'enregistrer.
+      </span>
+      <textarea name="body_html" rows="24" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.6"><%= page.body_html %></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>
+
+<%- include('../partials/admin-bottom') %>

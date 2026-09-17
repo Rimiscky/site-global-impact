@@ -16,3 +16,10 @@ node_modules/
 # Secrets / env
 .env
 .env.*
+!.env.example
+
+# Back office — database & uploaded media
+/data/*.sqlite3
+/data/*.sqlite3-*
+/public/uploads/*
+!/public/uploads/.gitkeep
