@@ -7,37 +7,64 @@
   <link rel="stylesheet" href="/admin.css" />
 </head>
 <body>
+<%
+  // Minimal inline icon set for the sidebar (24x24, stroke, currentColor).
+  var icons = {
+    overview: '<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>',
+    messages: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+    home: '<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/>',
+    formation: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    about: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+    contact: '<path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6.1A8.5 8.5 0 1 1 21 11.5z"/>',
+    legal: '<path d="M12 3v18M7 7l-4 8a4 4 0 0 0 8 0zM17 7l-4 8a4 4 0 0 0 8 0z"/><path d="M4 21h16M6 7h12"/>',
+    training: '<path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 9v6"/>',
+    team: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    clients: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+    gallery: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>',
+    history: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>',
+    faq: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.7 1.2c0 1.6-2.2 1.9-2.2 3.3"/><circle cx="12" cy="17" r=".6" fill="currentColor" stroke="none"/>',
+    media: '<rect x="3" y="3" width="18" height="14" rx="2"/><circle cx="8" cy="9" r="1.6"/><path d="M3 15l5-4 4 3.5L17 9l4 4"/><path d="M7 21h10"/>',
+    settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+    account: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+  };
+  function icon(name) {
+    return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + icons[name] + '</svg>';
+  }
+%>
 <div class="admin-shell">
   <aside class="admin-sidebar">
-    <div class="admin-sidebar__brand">Global Impact <span>Admin</span></div>
+    <div class="admin-sidebar__brand">
+      <div class="admin-sidebar__mark">G</div>
+      <div class="admin-sidebar__brand-text">Global Impact<span>Back office</span></div>
+    </div>
     <nav class="admin-nav">
       <div class="admin-nav-group">
         <div class="admin-nav-group__label">Tableau de bord</div>
-        <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>">Vue d'ensemble</a>
-        <a href="/admin/messages" class="<%= currentPath.startsWith('/admin/messages') ? 'active' : '' %>">Messages reçus</a>
+        <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>"><%- icon('overview') %> Vue d'ensemble</a>
+        <a href="/admin/messages" class="<%= currentPath.startsWith('/admin/messages') ? 'active' : '' %>"><%- icon('messages') %> Messages reçus</a>
       </div>
       <div class="admin-nav-group">
         <div class="admin-nav-group__label">Pages du site</div>
-        <a href="/admin/pages/home" class="<%= currentPath === '/admin/pages/home' ? 'active' : '' %>">Accueil</a>
-        <a href="/admin/pages/formation" class="<%= currentPath === '/admin/pages/formation' ? 'active' : '' %>">Formations (intro)</a>
-        <a href="/admin/pages/about" class="<%= currentPath === '/admin/pages/about' ? 'active' : '' %>">Qui sommes-nous</a>
-        <a href="/admin/pages/contact" class="<%= currentPath === '/admin/pages/contact' ? 'active' : '' %>">Contact</a>
-        <a href="/admin/legal" class="<%= currentPath.startsWith('/admin/legal') ? 'active' : '' %>">Pages légales</a>
+        <a href="/admin/pages/home" class="<%= currentPath === '/admin/pages/home' ? 'active' : '' %>"><%- icon('home') %> Accueil</a>
+        <a href="/admin/pages/formation" class="<%= currentPath === '/admin/pages/formation' ? 'active' : '' %>"><%- icon('formation') %> Formations (intro)</a>
+        <a href="/admin/pages/about" class="<%= currentPath === '/admin/pages/about' ? 'active' : '' %>"><%- icon('about') %> Qui sommes-nous</a>
+        <a href="/admin/pages/contact" class="<%= currentPath === '/admin/pages/contact' ? 'active' : '' %>"><%- icon('contact') %> Contact</a>
+        <a href="/admin/legal" class="<%= currentPath.startsWith('/admin/legal') ? 'active' : '' %>"><%- icon('legal') %> Pages légales</a>
       </div>
       <div class="admin-nav-group">
         <div class="admin-nav-group__label">Contenus</div>
-        <a href="/admin/training" class="<%= currentPath.startsWith('/admin/training') ? 'active' : '' %>">Formations (catalogue)</a>
-        <a href="/admin/team" class="<%= currentPath.startsWith('/admin/team') ? 'active' : '' %>">Équipe</a>
-        <a href="/admin/clients" class="<%= currentPath.startsWith('/admin/clients') ? 'active' : '' %>">Références clients</a>
-        <a href="/admin/gallery" class="<%= currentPath.startsWith('/admin/gallery') ? 'active' : '' %>">Réalisations</a>
-        <a href="/admin/history" class="<%= currentPath.startsWith('/admin/history') ? 'active' : '' %>">Notre histoire</a>
-        <a href="/admin/faq" class="<%= currentPath.startsWith('/admin/faq') ? 'active' : '' %>">FAQ</a>
+        <a href="/admin/training" class="<%= currentPath.startsWith('/admin/training') ? 'active' : '' %>"><%- icon('training') %> Formations (catalogue)</a>
+        <a href="/admin/team" class="<%= currentPath.startsWith('/admin/team') ? 'active' : '' %>"><%- icon('team') %> Équipe</a>
+        <a href="/admin/clients" class="<%= currentPath.startsWith('/admin/clients') ? 'active' : '' %>"><%- icon('clients') %> Références clients</a>
+        <a href="/admin/gallery" class="<%= currentPath.startsWith('/admin/gallery') ? 'active' : '' %>"><%- icon('gallery') %> Réalisations</a>
+        <a href="/admin/history" class="<%= currentPath.startsWith('/admin/history') ? 'active' : '' %>"><%- icon('history') %> Notre histoire</a>
+        <a href="/admin/faq" class="<%= currentPath.startsWith('/admin/faq') ? 'active' : '' %>"><%- icon('faq') %> FAQ</a>
       </div>
       <div class="admin-nav-group">
         <div class="admin-nav-group__label">Système</div>
-        <a href="/admin/media" class="<%= currentPath.startsWith('/admin/media') ? 'active' : '' %>">Médiathèque</a>
-        <a href="/admin/settings" class="<%= currentPath.startsWith('/admin/settings') ? 'active' : '' %>">Réglages du site</a>
-        <a href="/admin/account" class="<%= currentPath.startsWith('/admin/account') ? 'active' : '' %>">Mon compte</a>
+        <a href="/admin/media" class="<%= currentPath.startsWith('/admin/media') ? 'active' : '' %>"><%- icon('media') %> Médiathèque</a>
+        <a href="/admin/settings" class="<%= currentPath.startsWith('/admin/settings') ? 'active' : '' %>"><%- icon('settings') %> Réglages du site</a>
+        <a href="/admin/account" class="<%= currentPath.startsWith('/admin/account') ? 'active' : '' %>"><%- icon('account') %> Mon compte</a>
       </div>
     </nav>
   </aside>
@@ -48,7 +75,7 @@
         <a href="/" target="_blank" rel="noopener">Voir le site ↗</a>
         <span><%= adminUser.name %></span>
         <form action="/admin/logout" method="post" style="margin:0">
-          <button type="submit" class="btn-link" style="color:#64707B">Déconnexion</button>
+          <button type="submit" class="btn-link" style="color:#6B7178">Déconnexion</button>
         </form>
       </div>
     </div>
