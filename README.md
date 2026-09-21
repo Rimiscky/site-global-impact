@@ -96,21 +96,24 @@ désormais injecté depuis la base de données au moment du rendu (côté serveu
 Prérequis : Node.js 18+.
 
 ```bash
-# 1. Installer les dépendances (crée aussi la base de données et le compte admin)
+# 1. Installer les dépendances
 npm install
 
 # 2. Copier le fichier d'environnement et l'ajuster si besoin
 cp .env.example .env
 
-# 3. Lancer le serveur
+# 3. Créer la base de données et le compte admin (une seule fois)
+npm run seed
+
+# 4. Lancer le serveur
 npm start
 # → http://localhost:3000        (site public)
 # → http://localhost:3000/admin  (back office)
 ```
 
-Au premier `npm install`, un compte administrateur est créé automatiquement. Les identifiants
+Au premier `npm run seed`, un compte administrateur est créé automatiquement. Les identifiants
 sont affichés dans le terminal (et configurables via `ADMIN_EMAIL` / `ADMIN_PASSWORD` dans `.env`
-avant l'installation). **Pensez à changer ce mot de passe dès la première connexion**, depuis
+avant cette étape). **Pensez à changer ce mot de passe dès la première connexion**, depuis
 `/admin/account`.
 
 Pour regénérer la base à partir de zéro : supprimez le dossier `data/` puis relancez `npm run seed`.

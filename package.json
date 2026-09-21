@@ -5,7 +5,6 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
-    "postinstall": "node server/seed.js",
     "seed": "node server/seed.js",
     "extract-legacy": "node scripts/extract-legacy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
