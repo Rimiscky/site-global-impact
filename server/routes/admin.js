@@ -133,6 +133,7 @@ const SETTINGS_FIELDS = [
   { name: 'site_tagline', label: 'Slogan' },
   { name: 'contact_email', label: 'Email de contact' },
   { name: 'contact_phone', label: 'Téléphone' },
+  { name: 'contact_phone_2', label: 'Téléphone (2)' },
   { name: 'contact_address', label: 'Adresse (plusieurs lignes possibles)', textarea: true },
   { name: 'contact_hours', label: 'Horaires' },
   { name: 'meta_description', label: 'Description SEO (balise meta description)', textarea: true },

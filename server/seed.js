@@ -44,8 +44,9 @@ function run() {
     const defaultSettings = {
       site_title: 'Global Impact Consulting',
       site_tagline: 'Formation, Coaching & Conseil stratégique',
-      contact_email: legacy.contact?.email || 'contact@globalimpact.com',
-      contact_phone: legacy.contact?.phone || '+242 06 875 79 84',
+      contact_email: legacy.contact?.email || 'bcontact@globalimpactconsulting.cg',
+      contact_phone: legacy.contact?.phone || '06 857 71 41',
+      contact_phone_2: '05 384 37 72',
       contact_address: legacy.contact?.address || 'Centre-ville Pointe-Noire\nRépublique du Congo',
       contact_hours: legacy.contact?.hours || 'Lun – Ven · 8h00 – 17h00',
       meta_description: 'Global Impact Consulting (GIC) — cabinet de formation, coaching et conseil stratégique.',
