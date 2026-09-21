@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Rimiscky/site-global-impact#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^13.0.3",
+    "better-sqlite3": "7.6.2",
     "cheerio": "^1.2.0",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",

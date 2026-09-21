@@ -164,6 +164,16 @@ Pensez à :
   (images envoyées), pour ne pas les perdre à chaque redéploiement ;
 - changer le mot de passe administrateur par défaut dès la mise en production.
 
+### Hébergement mutualisé (o2switch, cPanel "Setup Node.js App")
+
+La version de `better-sqlite3` est volontairement figée à `7.6.2` (voir `package.json`) : ce
+paquet embarque un binaire précompilé, et les versions plus récentes exigent une glibc plus
+récente que celle de nombreux hébergements mutualisés (o2switch inclus, glibc 2.28), et la
+compilation depuis les sources y est généralement bloquée (CageFS/CloudLinux). Si vous changez
+d'hébergement et que `npm install` échoue sur `better-sqlite3` avec une erreur `GLIBC_x.xx not
+found`, testez d'autres versions majeures avec `npm install better-sqlite3@<version>` jusqu'à
+en trouver une compatible avant de modifier `package.json`.
+
 ---
 
 ## Conformité légale
