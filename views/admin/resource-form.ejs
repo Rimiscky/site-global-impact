@@ -9,14 +9,10 @@
       <% var value = item ? item[f.name] : ''; %>
 
       <% if (f.type === 'image') { %>
-        <label class="field">
+        <div class="field">
           <span class="label-text"><%= f.label %></span>
-          <% if (value) { %>
-            <div class="image-preview"><img src="<%= value %>" alt="" /><span class="hint"><%= value %></span></div>
-          <% } %>
-          <input type="file" name="<%= f.name %>" accept="image/*" <%= (!item && f.required) ? 'required' : '' %> />
-          <span class="field-hint">Laissez vide pour conserver l'image actuelle.</span>
-        </label>
+          <%- include('../partials/dropzone', { name: f.name, existingUrl: value, required: !item && f.required, hint: value ? 'ou cliquez pour remplacer l’image actuelle' : undefined }) %>
+        </div>
 
       <% } else if (f.type === 'richtext') { %>
         <label class="field">

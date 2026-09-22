@@ -87,7 +87,7 @@
   <!-- Navigation -->
   <header class="nav" id="nav">
     <a href="#top" class="nav__logo" aria-label="Global Impact Consulting - Accueil">
-      <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting" height="40"
+      <img src="<%= settings.site_logo %>" alt="Global Impact Consulting" height="40"
         style="display:block;height:40px;width:auto;" />
     </a>
 
@@ -279,10 +279,9 @@
     <section class="clients" id="clients">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-kicker">Références</span>
-          <h2 class="section-title">Ils nous ont fait, ils nous font et ils nous feront <em>confiance</em>.</h2>
-          <p class="section-sub">Entreprises, institutions et organisations qui nous ont confié leurs projets - hier,
-            aujourd'hui et demain.</p>
+          <span class="section-kicker"><%= blocks.clients_kicker %></span>
+          <h2 class="section-title"><%- blocks.clients_title_html %></h2>
+          <p class="section-sub"><%= blocks.clients_desc %></p>
         </div>
       </div>
 
@@ -378,10 +377,9 @@
     <section class="services" id="services">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-kicker">Nos formations</span>
-          <h2 class="section-title">6 domaines, <em>des dizaines</em> de programmes.</h2>
-          <p class="section-sub">Chaque programme combine conseil, formation pratique et accompagnement opérationnel
-            pour assurer des résultats mesurables.</p>
+          <span class="section-kicker"><%= blocks.services_kicker %></span>
+          <h2 class="section-title"><%- blocks.services_title_html %></h2>
+          <p class="section-sub"><%= blocks.services_desc %></p>
         </div>
 
         <div class="services__tabs" role="tablist">
@@ -585,7 +583,7 @@
             </li>
             <li>
               <span class="contact__label">Téléphone</span>
-              <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+              <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a><% if (settings.contact_phone_2) { %> · <a href="tel:<%= settings.contact_phone_2.replace(/\s+/g,'') %>"><%= settings.contact_phone_2 %></a><% } %>
             </li>
             <li>
               <span class="contact__label">Bureau</span>
@@ -642,7 +640,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="<%= settings.site_title %>"
+        <img src="<%= settings.site_logo %>" alt="<%= settings.site_title %>"
           style="height:48px;width:auto;display:block;margin-bottom:12px;" />
         <p><%= blocks.footer_tagline %></p>
       </div>
@@ -674,6 +672,7 @@
         <h4>Contact</h4>
         <a href="mailto:<%= settings.contact_email %>"><%= settings.contact_email %></a>
         <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+        <% if (settings.contact_phone_2) { %><a href="tel:<%= settings.contact_phone_2.replace(/\s+/g,'') %>"><%= settings.contact_phone_2 %></a><% } %>
         <span><%= settings.contact_address.split('\n')[0] %></span>
       </div>
     </div>

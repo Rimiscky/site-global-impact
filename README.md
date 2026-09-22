@@ -96,21 +96,24 @@ désormais injecté depuis la base de données au moment du rendu (côté serveu
 Prérequis : Node.js 18+.
 
 ```bash
-# 1. Installer les dépendances (crée aussi la base de données et le compte admin)
+# 1. Installer les dépendances
 npm install
 
 # 2. Copier le fichier d'environnement et l'ajuster si besoin
 cp .env.example .env
 
-# 3. Lancer le serveur
+# 3. Créer la base de données et le compte admin (une seule fois)
+npm run seed
+
+# 4. Lancer le serveur
 npm start
 # → http://localhost:3000        (site public)
 # → http://localhost:3000/admin  (back office)
 ```
 
-Au premier `npm install`, un compte administrateur est créé automatiquement. Les identifiants
+Au premier `npm run seed`, un compte administrateur est créé automatiquement. Les identifiants
 sont affichés dans le terminal (et configurables via `ADMIN_EMAIL` / `ADMIN_PASSWORD` dans `.env`
-avant l'installation). **Pensez à changer ce mot de passe dès la première connexion**, depuis
+avant cette étape). **Pensez à changer ce mot de passe dès la première connexion**, depuis
 `/admin/account`.
 
 Pour regénérer la base à partir de zéro : supprimez le dossier `data/` puis relancez `npm run seed`.
@@ -160,6 +163,16 @@ Pensez à :
 - monter un volume persistant pour le dossier `data/` (base de données) et `public/uploads/`
   (images envoyées), pour ne pas les perdre à chaque redéploiement ;
 - changer le mot de passe administrateur par défaut dès la mise en production.
+
+### Hébergement mutualisé (o2switch, cPanel "Setup Node.js App")
+
+La version de `better-sqlite3` est volontairement figée à `7.6.2` (voir `package.json`) : ce
+paquet embarque un binaire précompilé, et les versions plus récentes exigent une glibc plus
+récente que celle de nombreux hébergements mutualisés (o2switch inclus, glibc 2.28), et la
+compilation depuis les sources y est généralement bloquée (CageFS/CloudLinux). Si vous changez
+d'hébergement et que `npm install` échoue sur `better-sqlite3` avec une erreur `GLIBC_x.xx not
+found`, testez d'autres versions majeures avec `npm install better-sqlite3@<version>` jusqu'à
+en trouver une compatible avant de modifier `package.json`.
 
 ---
 

@@ -82,6 +82,7 @@
         <h4>Contact</h4>
         <a href="mailto:<%= settings.contact_email %>"><%= settings.contact_email %></a>
         <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+        <% if (settings.contact_phone_2) { %><a href="tel:<%= settings.contact_phone_2.replace(/\s+/g,'') %>"><%= settings.contact_phone_2 %></a><% } %>
         <span><%= settings.contact_address.split('\n')[0] %></span>
       </div>
     </div>

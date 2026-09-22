@@ -65,6 +65,12 @@ const PAGES = {
       { key: 'contact_title_html', label: 'Section "Contact" — titre (HTML autorisé)', type: 'richtext' },
       { key: 'contact_desc', label: 'Texte de présentation', type: 'textarea' },
       { key: 'footer_tagline', label: 'Slogan dans le pied de page', type: 'text' },
+      { key: 'clients_kicker', label: 'Section "Références" — mot-clé', type: 'text' },
+      { key: 'clients_title_html', label: 'Section "Références" — titre (HTML autorisé)', type: 'richtext' },
+      { key: 'clients_desc', label: 'Section "Références" — texte', type: 'textarea' },
+      { key: 'services_kicker', label: 'Section "Nos formations" — mot-clé', type: 'text' },
+      { key: 'services_title_html', label: 'Section "Nos formations" — titre (HTML autorisé)', type: 'richtext' },
+      { key: 'services_desc', label: 'Section "Nos formations" — texte', type: 'textarea' },
     ],
   },
 

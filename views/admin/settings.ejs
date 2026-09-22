@@ -2,10 +2,17 @@
 
 <% if (saved) { %><div class="alert alert-success">Réglages enregistrés.</div><% } %>
 
-<form method="post" action="/admin/settings">
+<form method="post" action="/admin/settings" enctype="multipart/form-data">
   <div class="card">
     <h2>Réglages généraux</h2>
     <p class="hint">Ces informations sont utilisées sur l'ensemble du site (pied de page, page contact, SEO).</p>
+
+    <div class="field">
+      <span class="label-text">Logo du site</span>
+      <%- include('../partials/dropzone', { name: 'logo', existingUrl: values.site_logo, hint: 'ou cliquez pour remplacer le logo actuel' }) %>
+      <span class="field-hint">Utilisé dans le menu et le pied de page de toutes les pages.</span>
+    </div>
+
     <% fields.forEach(function (f) { %>
       <label class="field">
         <span class="label-text"><%= f.label %></span>

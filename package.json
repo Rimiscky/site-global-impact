@@ -5,7 +5,6 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
-    "postinstall": "node server/seed.js",
     "seed": "node server/seed.js",
     "extract-legacy": "node scripts/extract-legacy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,7 +22,7 @@
   "homepage": "https://github.com/Rimiscky/site-global-impact#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "better-sqlite3": "^13.0.3",
+    "better-sqlite3": "7.6.2",
     "cheerio": "^1.2.0",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",

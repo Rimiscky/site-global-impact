@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#184E6C" />
 
-  <title>Contact — Global Impact Consulting</title>
+  <title>Contact — <%= settings.site_title %></title>
   <meta name="description" content="Contactez Global Impact Consulting à Pointe-Noire. Formulaire de contact, email et téléphone pour démarrer votre projet de formation, coaching ou conseil stratégique." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://globalimpactconsulting.com/contact.html" />
@@ -208,7 +208,7 @@
   <!-- Navigation -->
   <header class="nav nav--light-text" id="nav">
     <a href="index.html" class="nav__logo" aria-label="Global Impact Consulting - Accueil">
-      <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="Global Impact Consulting" height="40" style="display:block;height:40px;width:auto;" />
+      <img src="<%= settings.site_logo %>" alt="Global Impact Consulting" height="40" style="display:block;height:40px;width:auto;" />
     </a>
 
     <nav class="nav__menu" id="navMenu" aria-label="Menu principal">
@@ -289,7 +289,7 @@
               </div>
               <div>
                 <p class="cinfo-label">Téléphone</p>
-                <p class="cinfo-value"><a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a></p>
+                <p class="cinfo-value"><a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a><% if (settings.contact_phone_2) { %> · <a href="tel:<%= settings.contact_phone_2.replace(/\s+/g,'') %>"><%= settings.contact_phone_2 %></a><% } %></p>
               </div>
             </div>
 

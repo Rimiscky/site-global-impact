@@ -84,6 +84,12 @@ const result = {};
     contact_title_html: $('#contact .section-title').html().trim(),
     contact_desc: text($('#contact .section-sub')),
     footer_tagline: text($('.footer__brand p')),
+    clients_kicker: text($('#clients .section-kicker')),
+    clients_title_html: $('#clients .section-title').html().trim(),
+    clients_desc: text($('#clients .section-sub')),
+    services_kicker: text($('#services .section-kicker')),
+    services_title_html: $('#services .section-title').html().trim(),
+    services_desc: text($('#services .section-sub')),
   };
 
   result.gallery = $('#gallery .gallery__item').map((i, el) => {

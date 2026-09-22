@@ -27,7 +27,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="assets/photo et logo/LOGO-GLOBAL-IMPACT-3-png.png" alt="<%= settings.site_title %>"
+        <img src="<%= settings.site_logo %>" alt="<%= settings.site_title %>"
           style="height:48px;width:auto;display:block;margin-bottom:12px;" />
         <p><%= (typeof footerTagline !== 'undefined' && footerTagline) || 'Créer un impact durable, humain et mesurable au cœur de chaque projet.' %></p>
       </div>
@@ -47,6 +47,7 @@
         <h4>Contact</h4>
         <a href="mailto:<%= settings.contact_email %>"><%= settings.contact_email %></a>
         <a href="tel:<%= settings.contact_phone.replace(/\s+/g,'') %>"><%= settings.contact_phone %></a>
+        <% if (settings.contact_phone_2) { %><a href="tel:<%= settings.contact_phone_2.replace(/\s+/g,'') %>"><%= settings.contact_phone_2 %></a><% } %>
         <span><%= settings.contact_address.split('\n')[0] %></span>
       </div>
     </div>

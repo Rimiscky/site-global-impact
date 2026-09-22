@@ -4,7 +4,7 @@ const { getPageBlocks, getSettings } = require('../lib/content');
 
 const router = express.Router();
 
-const SETTINGS_KEYS = ['site_title', 'site_tagline', 'contact_email', 'contact_phone', 'contact_address', 'contact_hours', 'meta_description'];
+const SETTINGS_KEYS = ['site_title', 'site_tagline', 'contact_email', 'contact_phone', 'contact_phone_2', 'contact_address', 'contact_hours', 'meta_description', 'site_logo'];
 
 function common() {
   return { settings: getSettings(SETTINGS_KEYS) };
