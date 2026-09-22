@@ -46,10 +46,8 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(`GIC — serveur démarré sur http://localhost:${PORT}`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`GIC — serveur démarré sur http://localhost:${PORT}`);
+});
 
 module.exports = app;
